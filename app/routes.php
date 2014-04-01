@@ -4,8 +4,8 @@ Route::when('admin/*', 'admin');
 Route::when('*', 'trick.view_throttle');
 
 # Route patterns
-Route::pattern('tag_slug', '[a-z0-9\-]+');
-Route::pattern('trick_slug', '[a-z0-9\-]+');
+Route::pattern('tag_slug', '[^/]+');
+Route::pattern('trick_slug', '[^/]+');
 
 # Admin routes
 Route::group([ 'prefix' => 'admin', 'namespace' => 'Controllers\Admin' ], function () {
