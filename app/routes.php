@@ -25,6 +25,7 @@ Route::group([ 'prefix' => 'admin', 'namespace' => 'Controllers\Admin' ], functi
 Route::group([ 'namespace' => 'Controllers' ], function () {
     # Home routes
     Route::get('/', [ 'as' => 'browse.recent', 'uses' => 'BrowseController@getBrowseRecent' ]);
+    Route::get('/', [ 'as' => 'home', 'uses' => 'BrowseController@getBrowseRecent' ]);
     Route::get('popular', [ 'as' => 'browse.popular', 'uses' => 'BrowseController@getBrowsePopular' ]);
     Route::get('comments', [ 'as' => 'browse.comments', 'uses' => 'BrowseController@getBrowseComments' ]);
     Route::get('about', [ 'as' => 'about', 'uses' => 'HomeController@getAbout' ]);
