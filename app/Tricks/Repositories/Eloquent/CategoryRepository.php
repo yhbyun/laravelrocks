@@ -2,6 +2,7 @@
 
 namespace Tricks\Repositories\Eloquent;
 
+use MyString;
 use Tricks\Category;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
@@ -90,7 +91,7 @@ class CategoryRepository extends AbstractRepository implements CategoryRepositor
         $category = $this->getNew();
 
         $category->name        = e($data['name']);
-        $category->slug        = Str::slug($category->name, '-');
+        $category->slug        = MyString::slug($category->name, '-');
         $category->description = $data['description'];
         $category->order       = $this->getMaxOrder() + 1;
 
@@ -111,7 +112,7 @@ class CategoryRepository extends AbstractRepository implements CategoryRepositor
         $category = $this->findById($id);
 
         $category->name         = e($data['name']);
-        $category->slug         = Str::slug($category->name, '-');
+        $category->slug         = MyString::slug($category->name, '-');
         $category->description  = $data['description'];
 
         $category->save();

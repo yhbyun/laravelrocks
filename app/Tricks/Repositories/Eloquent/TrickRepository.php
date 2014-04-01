@@ -3,6 +3,7 @@
 namespace Tricks\Repositories\Eloquent;
 
 use Disqus;
+use MyString;
 use Tricks\Tag;
 use Tricks\User;
 use Tricks\Trick;
@@ -242,7 +243,7 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
 
         $trick->user_id     = $data['user_id'];
         $trick->title       = e($data['title']);
-        $trick->slug        = Str::slug($data['title'], '-');
+        $trick->slug        = MyString::slug($data['title'], '-');
         $trick->description = e($data['description']);
         $trick->code        = $data['code'];
 
@@ -265,7 +266,7 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
     {
         //$trick->user_id = $data['user_id'];
         $trick->title       = e($data['title']);
-        $trick->slug        = Str::slug($data['title'], '-');
+        $trick->slug        = MyString::slug($data['title'], '-');
         $trick->description = e($data['description']);
         $trick->code        = $data['code'];
 

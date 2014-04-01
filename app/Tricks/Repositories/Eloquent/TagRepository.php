@@ -2,6 +2,7 @@
 
 namespace Tricks\Repositories\Eloquent;
 
+use MyString;
 use Tricks\Tag;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
@@ -91,7 +92,7 @@ class TagRepository extends AbstractRepository implements TagRepositoryInterface
         $tag = $this->getNew();
 
         $tag->name = $data['name'];
-        $tag->slug = Str::slug($tag->name, '-');
+        $tag->slug = MyString::slug($tag->name, '-');
 
         $tag->save();
 
@@ -110,7 +111,7 @@ class TagRepository extends AbstractRepository implements TagRepositoryInterface
         $tag = $this->findById($id);
 
         $tag->name = $data['name'];
-        $tag->slug = Str::slug($tag->name, '-');
+        $tag->slug = MyString::slug($tag->name, '-');
 
         $tag->save();
 
