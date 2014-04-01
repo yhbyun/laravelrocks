@@ -3,19 +3,20 @@
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="https://www.facebook.com/2008/fbml">
     <head>
-        @section('description', 'Laravel tricks is a website that aggregates useful tips and tricks for Laravel PHP framework')
+        @section('description', 'Laravel rocks는 Laravel 관련 팁을 모아 놓은 사이트입니다')
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta property="og:title" content="" />
+        <meta property="og:title" content="Laravel 팁" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="" />
-        <meta property="og:image" content="" />
-        <meta property="og:site_name" content="" />
+        <meta property="og:url" content="http://laravelrocks.com" />
+        <meta property="og:image" content="http://laravelrocks.com/img/logo.png" />
+        <meta property="og:site_name" content="laravelrocks.com" />
         <meta property="og:description" content="@yield('description')" />
         <meta name="description" content="@yield('description')">
-        <meta name="author" content="Stidges, @stidges and Maks Surguy, @msurguy">
-        <title>@yield('title') | Laravel-Tricks.com</title>
+        <meta name="author" content="YongHun Byun, @river">
+        <title>@yield('title') | laravelrocks.com</title>
+        <link rel="shortcut icon" href="{{ URL::asset('img/favicon.ico') }}">
         <link rel="stylesheet" href="{{ URL::asset('css/laratricks.min.4.css') }}">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
         @yield('styles')
