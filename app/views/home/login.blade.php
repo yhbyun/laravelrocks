@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-lg-4 col-lg-push-4 col-md-6 col-md-push-3 col-sm-8 col-sm-push-2">
                 <div class="content-box login-form">
-                    <h1 class="page-title">Login</h1>
+                    <h1 class="page-title">{{ trans('messages.login') }}</h1>
                     @if(Session::get('login_errors'))
                         <div class="alert alert-danger alert-dismissable">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -22,16 +22,16 @@
 
                     {{ Form::open(['route' => 'auth.login']) }}
                         <div class="form-group">
-                            {{ Form::label('username', 'Username', [ 'class' => 'control-label' ]) }}
-                            {{ Form::text('username', null, ['class'=>'form-control', 'placeholder' => 'Username...'])}}
+                            {{ Form::label('username', trans('messages.username'), [ 'class' => 'control-label' ]) }}
+                            {{ Form::text('username', null, ['class'=>'form-control', 'placeholder' => trans('messages.username') . '...'])}}
                         </div>
-                        <div class="form-group">
-                            {{ Form::label('password', 'Password', [ 'class' => 'control-label' ]) }}
-                            {{ Form::password('password', ['class'=>'form-control', 'placeholder'=>'Password...'])}}
+                        <div class="form-group".>
+                            {{ Form::label('password', trans('messages.password'), [ 'class' => 'control-label' ]) }}
+                            {{ Form::password('password', ['class'=>'form-control', 'placeholder'=>trans('messages.password') . '...'])}}
                         </div>
                         <div class="checkbox">
                             <label>
-                                {{ Form::checkbox('remember') }} Remember me
+                                {{ Form::checkbox('remember') }} {{ trans('messages.rememberme') }}
                             </label>
                         </div>
                         <div class="form-group">
@@ -44,8 +44,8 @@
                     <a class="btn btn-default btn-block btn-login-github" href="{{url('login/github')}}"><i class="fa fa-github"></i> Login with Github</a>
                     -->
                     <ul class="nav nav-list">
-                        <li class="text-center"><a href="{{ url('password/remind') }}">Forgot your password?</a></li>
-                        <li class="text-center"><a href="{{ url('register') }}">Don't have an account yet?</a></li>
+                        <li class="text-center"><a href="{{ url('password/remind') }}">{{ trans('messages.lostpassword') }}</a></li>
+                        <li class="text-center"><a href="{{ url('register') }}">{{ trans('messages.signup') }}</a></li>
                     </ul>
                 </div>
             </div>

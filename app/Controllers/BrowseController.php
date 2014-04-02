@@ -115,7 +115,7 @@ class BrowseController extends BaseController
         $tricks = $this->tricks->findMostRecent();
 
         $type      = 'Recent';
-        $pageTitle = 'Browsing Most Recent Laravel Tricks';
+        $pageTitle = trans('messages.title.recent-browse');
 
         $this->view('browse.index', compact('tricks', 'type', 'pageTitle'));
     }
@@ -130,7 +130,7 @@ class BrowseController extends BaseController
         $tricks = $this->tricks->findMostPopular();
 
         $type      = 'Popular';
-        $pageTitle = 'Browsing Most Popular Laravel Tricks';
+        $pageTitle = trans('messages.title.popular-browse');
 
         $this->view('browse.index', compact('tricks', 'type', 'pageTitle'));
     }
@@ -145,7 +145,7 @@ class BrowseController extends BaseController
         $tricks = $this->tricks->findMostCommented();
 
         $type      = 'Most commented';
-        $pageTitle = 'Browsing Most Commented Laravel Tricks';
+        $pageTitle = trans('messages.title.commented-browse');
 
         $this->view('browse.index', compact('tricks', 'type', 'pageTitle'));
     }

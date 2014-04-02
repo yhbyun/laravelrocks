@@ -115,7 +115,7 @@ jQuery(function ($){
           {{ Form::open(array('role'=>'form','id'=>'loginform','class'=>'form-horizontal'))}}
           <fieldset>
             <div class="form-group {{Session::get('username_required')? 'has-error': ''}}">
-              <label for="username" class="col-lg-4 control-label">Username</label>
+              <label for="username" class="col-lg-4 control-label">{{ trans('messages.username') }}</label>
               <div class="col-lg-8">
                 {{ Form::text('username', Auth::user()->username, array('class'=>'form-control','placeholder'=>'Username'))}}
                 @if(Session::get('username_required'))
@@ -125,14 +125,14 @@ jQuery(function ($){
 
             </div>
             <div class="form-group">
-              <label for="email" class="col-lg-4 control-label">Email</label>
+              <label for="email" class="col-lg-4 control-label">{{ trans('messages.email') }}</label>
               <div class="col-lg-8">
                 <input type="email" disabled class="form-control" id="email" placeholder="{{Auth::user()->email}}">
               </div>
             </div>
 
             <div class="form-group">
-              <label for="avatar" class="col-lg-4 control-label">Profile Picture</label>
+              <label for="avatar" class="col-lg-4 control-label">{{ trans('messages.profile-picture') }}</label>
               <div class="col-lg-8">
                 <input type="hidden" id="avatar-hidden" name="avatar" value="">
                 <div id="upload-avatar" class="upload-avatar">
@@ -154,13 +154,13 @@ jQuery(function ($){
             </div>
 
             <div class="form-group">
-              <label for="password" class="col-lg-4 control-label">Password</label>
+              <label for="password" class="col-lg-4 control-label">{{ trans('messages.password') }}</label>
               <div class="col-lg-8">
                 {{ Form::password('password', array('class'=>'form-control','placeholder'=>'New Password'))}}
               </div>
             </div>
             <div class="form-group">
-              <label for="password_confirmation" class="col-lg-4 control-label">Confirm Password</label>
+              <label for="password_confirmation" class="col-lg-4 control-label">{{ trans('messages.repassword') }}</label>
               <div class="col-lg-8">
                 {{ Form::password('password_confirmation', array('class'=>'form-control','placeholder'=>'Confirm Password'))}}
               </div>
