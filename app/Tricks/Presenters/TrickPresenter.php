@@ -2,6 +2,7 @@
 
 namespace Tricks\Presenters;
 
+use MyString;
 use Tricks\User;
 use Tricks\Trick;
 use Tricks\Category;
@@ -154,6 +155,14 @@ class TrickPresenter extends BasePresenter
         }
 
         return e($description);
+    }
+
+    public function abstraction()
+    {
+        $description = $this->resource->description;
+        $maxLength   = 255;
+
+        return MyString::cutString($description, $maxLength);
     }
 
     /**
