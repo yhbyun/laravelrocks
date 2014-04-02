@@ -25,7 +25,7 @@ $app = new Illuminate\Foundation\Application;
 */
 
 $env = $app->detectEnvironment(array(
-    'local' => array('*.dev'),
+    'local' => array('vaprobash.dev'),
     'production' => array('riverubuntu')
 ));
 
