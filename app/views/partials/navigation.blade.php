@@ -9,7 +9,7 @@
 			</button>
 
 			<a class="navbar-brand" href="{{ url('/') }}">
-				<img width="207" height="50" src="{{ asset('img/logo@2x.1.png') }}">
+				<img width="207" src="{{ asset('img/logo.png') }}">
 			</a>
 		</div>
 
@@ -19,19 +19,19 @@
 				{{ Navigation::make(Request::path()) }}
 
 				@if(Auth::guest())
-					<li class="visible-xs"><a href="{{ url('register') }}">Register</a></li>
-					<li class="visible-xs"><a href="{{ url('login') }}">Login</a></li>
+					<li class="visible-xs"><a href="{{ url('register') }}">{{ trans('messages.signup') }}</a></li>
+					<li class="visible-xs"><a href="{{ url('login') }}">{{ trans('messages.login') }}</a></li>
 				@else
 					<li class="visible-xs"><a href="{{ url('user') }}">My profile</a></li>
-					<li class="visible-xs"><a href="{{ url('logout') }}">Logout</a></li>
+					<li class="visible-xs"><a href="{{ url('logout') }}">{{ trans('messages.logout') }}</a></li>
 				@endif
 
 			</ul>
 
 			<div class="navbar-right hidden-xs">
 				@if(Auth::guest())
-					<a href="{{ url('register') }}" class="btn btn-primary">Register</a>
-					<a href="{{ url('login') }}" class="btn btn-primary">Login</a>
+					<a href="{{ url('register') }}" class="btn btn-primary">{{ trans('messages.signup') }}</a>
+					<a href="{{ url('login') }}" class="btn btn-primary">{{ trans('messages.login') }}</a>
 				@else
 				<ul class="nav">
 					<li class="dropdown {{( Request::segment(2) == 'settings' || Request::segment(2)=='favorites' ? 'active' : false )}}">
@@ -42,8 +42,8 @@
 					  <ul class="dropdown-menu">
 					  	<li class="{{( Request::segment('1') == 'user' && Request::segment('2') == '' ? 'active' : false )}}"><a href="{{ url('user')}}">My tricks</a></li>
 					    <li class="{{( Request::segment('2') == 'favorites' ? 'active' : false )}}"><a href="{{ url('user/favorites')}}">My Favorites</a></li>
-					    <li class="{{( Request::segment('2') == 'settings' ? 'active' : false )}}"><a href="{{ url('user/settings')}}">Settings</a></li>
-					    <li><a href="{{ url('logout')}}">Logout</a></li>
+					    <li class="{{( Request::segment('2') == 'settings' ? 'active' : false )}}"><a href="{{ url('user/settings')}}">{{ trans('messages.settings') }}</a></li>
+					    <li><a href="{{ url('logout')}}">{{ trans('messages.logout') }}</a></li>
 					  </ul>
 					</li>
 				</ul>

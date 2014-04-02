@@ -25,9 +25,8 @@ $app = new Illuminate\Foundation\Application;
 */
 
 $env = $app->detectEnvironment(array(
-
-	'local' => array('stijn-PC', 'Maxoffsky-PC','Maksim-Surguys-MacBook-Pro.local'),
-
+    'local' => array('vaprobash.dev'),
+    'production' => array('riverubuntu')
 ));
 
 /*

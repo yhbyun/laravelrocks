@@ -21,6 +21,7 @@
 			"app/commands",
 			"app/database/migrations",
 			"app/database/seeds",
+            "app/libraries",
 			"app/tests/TestCase.php"
 		],
 		"psr-0": {

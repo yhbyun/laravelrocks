@@ -45,8 +45,10 @@
                         </div>
                     {{ Form::close() }}
 
+                    <!--
                     <p class="text-center" style="margin-top:10px;">OR</p>
                     <a class="btn btn-default btn-block btn-login-github" href="{{url('login/github')}}"><i class="fa fa-github"></i> Register with Github</a>
+                    -->
                     <ul class="nav nav-list">
                         <li class="text-center"><a href="{{ url('login') }}">Already have an account?</a></li>
                     </ul>
