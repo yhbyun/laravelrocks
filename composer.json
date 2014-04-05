@@ -9,7 +9,8 @@
 		"league/oauth2-client": "dev-master",
 		"intervention/image": "1.5.*",
 		"thomaswelton/laravel-gravatar": "0.0.*",
-		"roumen/sitemap": "2.4.*"
+		"roumen/sitemap": "2.4.*",
+        "codesleeve/asset-pipeline": "dev-master"
 	},
 	"require-dev" : {
 		"mockery/mockery"         : "dev-master",

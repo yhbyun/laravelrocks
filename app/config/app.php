@@ -111,6 +111,7 @@ return array(
         'Intervention\Image\ImageServiceProvider',
         'Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider',
         'Roumen\Sitemap\SitemapServiceProvider',
+        'Codesleeve\AssetPipeline\AssetPipelineServiceProvider',
 
         'Tricks\Providers\RepositoryServiceProvider',
         'Tricks\Providers\SocialServiceProvider',

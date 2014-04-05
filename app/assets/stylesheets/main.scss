@@ -1,0 +1,19 @@
+$white: #fff;
+$red-darker : #ef2e1c;
+$red-dark : #f25444;
+$red: #f47063;
+$red-light : #fb503b;
+$red-lighter : #ff8383;
+
+$brand-primary: $red;
+$navbar-default-color: $red;
+$navbar-default-border: $red-dark;
+$component-active-color: $white;
+$component-active-bg : $red;
+$input-color-placeholder: $red-lighter;
+$btn-primary-color: $red;
+$btn-primary-bg: $white;
+$btn-primary-border: $red-light;
+$font-family-sans-serif: Ubuntu,HelveticaNeue-Light,"Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif;
+
+@import "../../../provider/assets/stylesheets/bootstrap";
