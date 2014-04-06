@@ -10,7 +10,9 @@
 		"intervention/image": "1.5.*",
 		"thomaswelton/laravel-gravatar": "0.0.*",
 		"roumen/sitemap": "2.4.*",
-        "codesleeve/asset-pipeline": "dev-master"
+        "codesleeve/asset-pipeline": "dev-master",
+        "barryvdh/laravel-ide-helper": "1.*",
+        "itsgoingd/clockwork": "1.*"
 	},
 	"require-dev" : {
 		"mockery/mockery"         : "dev-master",
