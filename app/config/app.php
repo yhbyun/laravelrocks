@@ -26,7 +26,7 @@ return array(
     |
     */
 
-    'url' => 'http://localhost',
+    'url' => 'http://laravelrocks.com',
 
     /*
     |--------------------------------------------------------------------------
@@ -65,7 +65,7 @@ return array(
     |
     */
 
-    'key' => 'Your App Key Here',
+    'key' => 'hY0O375yWs1wEyzEoL3dredNpHFpxW6C',
 
     /*
     |--------------------------------------------------------------------------
