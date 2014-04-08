@@ -1,6 +1,6 @@
 <div id="footer">
   <div class="container">
-    <p class="text-muted credit">이 사이트는 <a href="http://laravel-tricks.com">laravel-tricks</a> 소스를 기반으로 제작됐습니다.
+    <p class="text-muted credit">Website based on <a href="http://laravel-tricks.com">laraveltricks</a> by <a target="_blank" href="http://about.me/yhbyun">YongHun Byun</a>
     <span class="pull-right">
         <a target="_blank" href="http://twitter.com/laravelrocks" title="Follow updates"><i class="fa fa-twitter fa-lg"></i></a>
         |
