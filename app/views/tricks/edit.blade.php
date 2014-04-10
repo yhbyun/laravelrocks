@@ -1,7 +1,22 @@
 @section('title', 'Trick')
 
 @section('styles')
+	<link rel="stylesheet" href="{{ URL::asset('css/highlight/laratricks.css') }}">
 	<link rel="stylesheet" href="{{ URL::asset('js/selectize/css/selectize.bootstrap3.css') }}">
+	<style type="text/css">
+	#editor-content {
+		position: relative;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		height: 300px;
+		-webkit-border-radius: 4px;
+		-moz-border-radius: 4px;
+		border-radius: 4px;
+		border: 1px solid #cccccc;
+	}
+	</style>
 @stop
 
 @section('scripts')
