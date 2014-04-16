@@ -1,7 +1,7 @@
 @section('title','Settings')
 
 @section('styles')
-<link rel="stylesheet" href="{{ URL::asset('css/jquery.Jcrop.min.1.css') }}">
+<link rel="stylesheet" href="{{ URL::asset('css/jquery.Jcrop.min.css') }}">
 @stop
 
 @section('scripts')
