@@ -5,8 +5,7 @@
 	@if(Session::has('first_use'))
 	  <div class="alert alert-success alert-dismissable text-center">
 		<button type="button" class="close" data-dismiss="alert">&times;</button>
-		<h4>Welcome to Laravel tricks!</h4>
-		<p>Explore the tricks, create and share some of your own!</p>
+		{{ trans('messages.signup.welcome') }}
 	  </div>
 	@endif
 

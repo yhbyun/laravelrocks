@@ -20,6 +20,8 @@ return array(
 	'title.popular-browse'      => '인기있는 Laravel 팁 보기',
 	'title.commented-browse'    => '댓글이 많이 달린 Laravel 팁 보기',
 
-	'already-signed' => '회원이십니까?'
+	'already-signed' => '회원이십니까?',
+
+	'signup.welcome' => '<h4>laravelrocks 회원가입을 환영합니다!</h4><p>조그만 팁이라도 다른 분에게는 정말 소중한 정보가 될 수 있습니다.<br>서로의 정보를 공유해서 좀더 행복한, 좀더 재밌는 개발이 됐으면 합니다.<br><strong>Your Trash is My Treasure!</strong></p>',
 
 );
