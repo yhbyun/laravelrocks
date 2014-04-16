@@ -2,6 +2,7 @@
 /vendor
 /report
 /app/config/production
+/public/img/avatar
 composer.phar
 composer.lock
 .DS_Store
