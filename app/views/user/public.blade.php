@@ -21,7 +21,7 @@
                 <table>
                     <tr>
                         <th>Total tricks:</th>
-                        <td>{{ count($tricks) }}</td>
+                        <td>{{ $tricks->getTotal() }}</td>
                     </tr>
                     <tr>
                         <th width="140">Last trick:</th>
