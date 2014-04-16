@@ -41,4 +41,5 @@ return array(
 		'feed.atom',
 		'feed.xml'
 	],
+
 );

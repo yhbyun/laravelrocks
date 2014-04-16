@@ -42,7 +42,7 @@
                             </div>
                         </div>
                     </div>
-                    <p>{{{ $trick->description }}}</p>
+                    <p>{{ $trick->prettyDescription }}</p>
                     <pre><code class="php">{{{ $trick->code }}}</code></pre>
                 </div>
             </div>

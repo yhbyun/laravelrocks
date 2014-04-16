@@ -49,7 +49,8 @@
 					    </div>
 					    <div class="form-group">
 					    	<label for="description">Description</label>
-					    	{{Form::textarea('description',null, array('class'=>'form-control','placeholder'=>'Give detailed description of the trick','rows'=>'3'));}}
+					    	{{Form::textarea('description',null, array('class'=>'form-control','placeholder'=>'Give detailed description of the trick','rows'=>'10'));}}
+                            <p class="help-block"><a href="https://help.github.com/articles/github-flavored-markdown">GitHub-flavoured Markdown</a> is supported.</p>
 					    </div>
 					    <div class="form-group">
 					      <label>Trick code: </label>

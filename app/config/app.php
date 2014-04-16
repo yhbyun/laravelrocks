@@ -112,6 +112,7 @@ return array(
         'Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider',
         'Roumen\Sitemap\SitemapServiceProvider',
         'Codesleeve\AssetPipeline\AssetPipelineServiceProvider',
+        'Mews\Purifier\PurifierServiceProvider',
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'Clockwork\Support\Laravel\ClockworkServiceProvider',
 
@@ -121,6 +122,8 @@ return array(
         'Tricks\Providers\NavigationServiceProvider',
         'Tricks\Providers\SitemapServiceProvider',
         'Tricks\Providers\EventServiceProvider',
+        'Tricks\Providers\MarkdownServiceProvider',
+        'Tricks\Providers\GistServiceProvider',
     ),
 
     /*
@@ -187,7 +190,8 @@ return array(
         'Validator'      => 'Illuminate\Support\Facades\Validator',
         'View'           => 'Illuminate\Support\Facades\View',
 
-        'Clockwork'       => 'Clockwork\Support\Laravel\Facade',
+        'Clockwork'      => 'Clockwork\Support\Laravel\Facade',
+        'Purifier'       => 'Mews\Purifier\Facades\Purifier',
 
         'Github'         => 'Tricks\Facades\Github',
         'GithubProvider' => 'Tricks\Facades\GithubProvider',

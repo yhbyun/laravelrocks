@@ -2,6 +2,8 @@
 
 namespace Tricks\Presenters;
 
+use App;
+use Misd\Linkify\Linkify;
 use MyString;
 use Tricks\User;
 use Tricks\Trick;
@@ -157,12 +159,24 @@ class TrickPresenter extends BasePresenter
         return e($description);
     }
 
+    // TODO : 마크업 사제. laravel.io의 excerpt 메소드 참고
     public function abstraction()
     {
         $description = $this->resource->description;
         $maxLength   = 255;
 
         return MyString::cutString($description, $maxLength);
+    }
+
+    public function prettyDescription() {
+        $description = $this->resource->description;
+
+        $description = $this->convertMarkdown($description);
+        $description = $this->convertNewlines($description);
+        $description = $this->formatGists($description);
+        $description = $this->linkify($description);
+
+        return $description;
     }
 
     /**
@@ -215,5 +229,26 @@ class TrickPresenter extends BasePresenter
         $output .= $url['path'];
 
         return $output;
+    }
+
+    private function convertMarkdown($content)
+    {
+        return App::make('markdown')->convertMarkdownToHtml($content);
+    }
+
+    private function convertNewlines($content)
+    {
+        return str_replace("\n\n", '<br/>', $content);
+    }
+
+    private function formatGists($content)
+    {
+        return App::make('gist')->format($content);
+    }
+
+    private function linkify($content)
+    {
+        $linkify = new Linkify();
+        return $linkify->process($content);
     }
 }
