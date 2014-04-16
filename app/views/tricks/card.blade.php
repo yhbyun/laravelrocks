@@ -4,7 +4,7 @@
 			{{{ $trick->title }}}
 		</a>
 		<div class="trick-card-stats trick-card-by">by <b><a href="{{ route('user.profile', $trick->user->username) }}">{{ $trick->user->username }}</a></b></div>
-        <div class="trick-card-stats">{{ $trick->abstraction }}</div>
+        <div class="trick-card-stats">{{{ $trick->abstraction }}}</div>
 		<div class="trick-card-stats clearfix">
 			<div class="trick-card-timeago">Submitted {{ $trick->timeago }} {{ $trick->categories }}</div>
 			<div class="trick-card-stat-block"><span class="fa fa-eye"></span> {{$trick->view_cache}}</div>

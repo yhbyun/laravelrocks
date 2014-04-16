@@ -244,7 +244,7 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
         $trick->user_id     = $data['user_id'];
         $trick->title       = e($data['title']);
         $trick->slug        = MyString::slug($data['title'], '-');
-        $trick->description = e($data['description']);
+        $trick->description = $data['description'];
         $trick->code        = $data['code'];
 
         $trick->save();
@@ -267,7 +267,7 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
         //$trick->user_id = $data['user_id'];
         $trick->title       = e($data['title']);
         $trick->slug        = MyString::slug($data['title'], '-');
-        $trick->description = e($data['description']);
+        $trick->description = $data['description'];
         $trick->code        = $data['code'];
 
         $trick->save();
