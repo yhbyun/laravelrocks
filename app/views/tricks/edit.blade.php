@@ -32,7 +32,8 @@
 				<div class="content-box">
 					@if(Auth::check() && (Auth::user()->id == $trick->user_id))
 						<div class="pull-right">
-							<a data-toggle="modal" href="#deleteModal">Delete</a>
+							<a data-toggle="modal" href="#deleteModal">Delete</a> |
+                            <a href="{{ route('tricks.show', [ $trick->slug ]) }}">View</a>
 							@include('tricks.delete',['link'=>$trick->deleteLink])
 						</div>
 					@endif
