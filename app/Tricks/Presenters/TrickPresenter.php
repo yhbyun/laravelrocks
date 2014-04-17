@@ -3,6 +3,7 @@
 namespace Tricks\Presenters;
 
 use App;
+use Carbon\Carbon;
 use Misd\Linkify\Linkify;
 use MyString;
 use Tricks\User;
@@ -61,6 +62,21 @@ class TrickPresenter extends BasePresenter
     {
         return $this->resource->created_at->diffForHumans();
     }
+
+    /**
+     * Get a readable lat updated timestamp.
+     *
+     * @return string
+     */
+    public function timeagoLastUpdated()
+    {
+        // 0000-00-00 00:00:00 값 비교
+        if ($this->resource->last_updated_at == Carbon::create(0, 0, 0, 0, 0, 0)->toDateTimeString()) {
+            return '';
+        }
+        return $this->resource->last_updated_at->diffForHumans();
+    }
+
 
     /**
      * Returns whether the given user has liked this trick.

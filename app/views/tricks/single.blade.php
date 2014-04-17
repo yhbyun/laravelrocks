@@ -38,7 +38,12 @@
                                 {{ $trick->title }}
                             </h1>
                             <div>
-                                Submitted by <b><a href="{{ route('user.profile', $trick->user->username) }}">{{ $trick->user->username }}</a></b> - {{ $trick->timeago }}
+                                Submitted by <b><a href="{{ route('user.profile', $trick->user->username) }}">{{ $trick->user->username }}</a></b> -
+                                @if ($trick->timeagoLastUpdated)
+                                등록 {{ $trick->timeago }} - 수정 {{ $trick->timeagoLastUpdated }}
+                                @else
+                                {{ $trick->timeago }}
+                                @endif
                             </div>
                         </div>
                     </div>

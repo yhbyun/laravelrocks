@@ -269,6 +269,7 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
         $trick->slug        = MyString::slug($data['title'], '-');
         $trick->description = $data['description'];
         $trick->code        = $data['code'];
+        $trick->last_updated_at = new \DateTime;
 
         $trick->save();
 

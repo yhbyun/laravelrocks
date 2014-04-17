@@ -27,6 +27,13 @@ class Trick extends Model
 	 */
 	protected $with = [ 'tags', 'categories', 'user' ];
 
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = ['last_updated_at'];
+
 	/**
 	 * Query the tricks' votes.
 	 *
