@@ -375,14 +375,26 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
 	overflow: hidden
 }
 }
-@media (min-width: 860px) and (min-width: 860px), (min-width: 860px) and (min-width: 860px) {
-.editor .entry-markdown .floatingheader, .editor .entry-preview .floatingheader {
+
+.floatingheader {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 400;
+    height: 40px;
+    padding: 10px 15px;
+    text-transform: uppercase;
     color: #aaa9a2;
-	padding-left: 0;
-	padding-right: 18px;
-	margin-right: 1px;
+    background-color: transparent;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fff),color-stop(25%, #fff),color-stop(100%, rgba(255,255,255,0.9)));
+    background-image: -webkit-linear-gradient(top, #fff 0%,#fff 25%,rgba(255,255,255,0.9) 100%);
+    background-image: linear-gradient(to bottom,#fff 0%,#fff 25%,rgba(255,255,255,0.9) 100%)
 }
-}
+
 @media (max-width: 860px), (max-width: 860px) {
 .editor .entry-markdown .floatingheader, .editor .entry-preview .floatingheader {
 	cursor: pointer;
@@ -462,11 +474,6 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
 .editor .entry-word-count {
 	float: right;
 	padding-right: 22px
-}
-@media (min-width: 860px) and (min-width: 860px), (min-width: 860px) and (min-width: 860px) {
-.editor .entry-markdown .floatingheader {
-	padding-left: 40px
-}
 }
 .editor .entry-markdown-content textarea {
 	border: 0;
@@ -553,7 +560,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	padding: 40px 40px 40px 30px;
+	padding: 40px 20px 20px 20px;
 	overflow: auto;
 	font-size: 1em
 }
