@@ -10,5 +10,5 @@
  * but before any files alphabetically greater than 'application.css' 
  *
  *= require main
- *= require_tree .
+ *= require_directory .
  */

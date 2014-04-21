@@ -3,6 +3,7 @@
 @section('styles')
 	<link rel="stylesheet" href="{{ URL::asset('css/highlight/laratricks.css') }}">
 	<link rel="stylesheet" href="{{ URL::asset('js/selectize/css/selectize.bootstrap3.css') }}">
+    {{{ stylesheet_link_tag('ghost/ghost') }}}
 	<style type="text/css">
 	#editor-content {
 		position: relative;
@@ -10,7 +11,7 @@
 		right: 0;
 		bottom: 0;
 		left: 0;
-		height: 300px;
+		height: 100px;
 		-webkit-border-radius: 4px;
 		-moz-border-radius: 4px;
 		border-radius: 4px;
@@ -23,12 +24,24 @@
 	<script type="text/javascript" src="{{url('js/selectize/js/standalone/selectize.min.1.js')}}"></script>
 	<script src="//d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js"></script>
 	<script type="text/javascript" src="{{ asset('js/trick-new-edit.js') }}"></script>
+    {{{ javascript_include_tag('ghost/ghost') }}}
+<script>
+    jQuery(function($) {
+        $('#save-trick-form').submit(function (e) {
+            // submit시 textarea에 자동 설정되는 값에는 img 마크다운에 대한 마킹이 추가됨
+            // ![<1>](...)
+            // 이를 피하기 위해서 폼을 두개로 나누고 설명에 대한 값은 여기서 설정함
+            $('#trick-desc').val(window.Ghost.editor.value());
+            $('#trick-title').val($('#trick-fake-title').val());
+        });
+    });
+</script>
 @stop
 
 @section('content')
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-8 col-lg-push-2 col-md-8 col-md-push-2 col-sm-12 col-xs-12">
+            <div class="col-xs-12">
 				<div class="content-box">
 					@if(Auth::check() && (Auth::user()->id == $trick->user_id))
 						<div class="pull-right">
@@ -55,16 +68,43 @@
 					         <h5>{{ Session::get('success') }}</h5>
 					    </div>
 					@endif
-					{{ Form::open(array('class'=>'form-vertical','id'=>'save-trick-form','role'=>'form'))}}
+					{{ Form::open(array('class'=>'form-vertical','id'=>'save-fake-form','role'=>'form'))}}
 					    <div class="form-group">
 					    	<label for="title">Title</label>
-					    	{{Form::text('title', $trick->title, array('class'=>'form-control','placeholder'=>'Name this trick'));}}
+					    	{{Form::text('title', $trick->title, array('class'=>'form-control','placeholder'=>'Name this trick', 'id'=>'trick-fake-title'));}}
 					    </div>
-					    <div class="form-group">
-					    	<label for="description">Description</label>
-					    	{{Form::textarea('description',$trick->description, array('class'=>'form-control','placeholder'=>'Give detailed description of the trick','rows'=>'10'));}}
-                            <p class="help-block"><a href="https://help.github.com/articles/github-flavored-markdown">GitHub-flavoured Markdown</a> is supported.</p>
-					    </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <div class="editor">
+                                <div class="outer">
+                                    <div class="editorwrap">
+                                        <section class="entry-markdown active">
+                                            <header class="floatingheader">
+                                                <small>Markdown</small>
+                                                <a class="markdown-help" href="https://help.github.com/articles/github-flavored-markdown""><span class="hidden">What is Markdown?</span></a>
+                                            </header>
+                                            <section id="entry-markdown-content" class="entry-markdown-content" data-filestorage="true">
+                                                {{Form::textarea('description', $trick->description, array('id' => 'entry-markdown', 'placeholder'=>'Give detailed description of the trick'));}}
+                                            </section>
+                                        </section>
+
+                                        <section class="entry-preview">
+                                            <header class="floatingheader">
+                                                <small>Preview <span class="entry-word-count js-entry-word-count">0 words</span></small>
+                                            </header>
+                                            <section class="entry-preview-content">
+                                                <div class="rendered-markdown"></div>
+                                            </section>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {{Form::close()}}
+
+                    {{ Form::open(array('class'=>'form-vertical','id'=>'save-trick-form','role'=>'form'))}}
+                    {{ Form::hidden('title', $trick->title, array('id'=>'trick-title')) }}
+                    {{ Form::hidden('description', null, array('id'=>'trick-desc')) }}
 					    <div class="form-group">
 					      <label>Trick code: </label>
 					      <div id="editor-content" class="content-editor"></div>
@@ -78,7 +118,7 @@
 					    </div>
 					    <div class="form-group">
 					        <div class="text-right">
-					          <button type="submit"  id="save-section" class="btn btn-primary ladda-button" data-style="expand-right">
+					          <button type="submit" id="save-section" class="btn btn-primary ladda-button" data-style="expand-right">
 					            Update Trick
 					          </button>
 					        </div>

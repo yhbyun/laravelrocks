@@ -3,6 +3,10 @@
 namespace Controllers;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Response;
+use ImageUpload;
 use Tricks\Repositories\TagRepositoryInterface;
 use Tricks\Repositories\TrickRepositoryInterface;
 use Tricks\Repositories\CategoryRepositoryInterface;
@@ -157,5 +161,24 @@ class UserTricksController extends BaseController
         return $this->redirectRoute('user.index', null, [
             'success' => \Lang::get('user_tricks.trick_deleted')
         ]);
+    }
+
+    public function postUpload()
+    {
+        if (isset($_SERVER['HTTP_ORIGIN'])) {
+            ImageUpload::enableCORS($_SERVER['HTTP_ORIGIN']);
+        }
+
+        if (Request::server('REQUEST_METHOD') == 'OPTIONS') {
+            exit;
+        }
+
+        $txt = ImageUpload::handleEditor(Input::file('uploadimage'));
+
+        if ($txt !== false) {
+            return Response::make($txt, 200);
+        }
+
+        return Response::make('error', 400);
     }
 }

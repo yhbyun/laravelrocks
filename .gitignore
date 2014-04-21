@@ -3,6 +3,7 @@
 /report
 /app/config/production
 /public/img/avatar
+/public/img/tricks
 composer.phar
 composer.lock
 .DS_Store
@@ -11,3 +12,7 @@ Thumbs.db
 _ide_helper.php
 .idea
 laravelrocks.md
+.bowerrc
+bower_components
+river.md
+

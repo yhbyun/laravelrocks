@@ -17,7 +17,7 @@
         <meta name="author" content="YongHun Byun, @river">
         <title>@yield('title') | laravelrocks.com</title>
         <link rel="shortcut icon" href="{{ URL::asset('img/favicon.ico') }}">
-        {{{ stylesheet_link_tag() }}}
+        {{{ stylesheet_link_tag('application') }}}
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
         @yield('styles')
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -45,7 +45,7 @@
         ga('send', 'pageview');
 
         </script>
-        {{{ javascript_include_tag() }}}
+        {{{ javascript_include_tag('application') }}}
         @yield('scripts')
         <script type="text/javascript">
             var disqus_shortname = '{{ Config::get("config.disqus_shortname") }}';

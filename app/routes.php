@@ -74,6 +74,7 @@ Route::group([ 'namespace' => 'Controllers' ], function () {
     # Trick creation route
     Route::get('user/tricks/new', [ 'as' => 'tricks.new', 'uses' => 'UserTricksController@getNew' ]);
     Route::post('user/tricks/new', 'UserTricksController@postNew');
+    Route::post('upload', 'UserTricksController@postUpload');
 
     # Trick editing route
     Route::get('user/tricks/{trick_slug}', [ 'as' => 'tricks.edit', 'uses' => 'UserTricksController@getEdit' ]);

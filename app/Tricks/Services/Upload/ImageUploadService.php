@@ -4,6 +4,7 @@ namespace Tricks\Services\Upload;
 
 use Intervention\Image\Image;
 use Illuminate\Filesystem\Filesystem;
+use MyStorage;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class ImageUploadService
@@ -174,5 +175,30 @@ class ImageUploadService
         }
 
         return $this->getJsonBody($filename, $mime, $path);
+    }
+
+
+    /**
+     * Handle the file upload. Returns the url on success, or false
+     * on failure
+     *
+     * @param UploadedFile $file
+     * @return string|bool
+     */
+    public function handleEditor(UploadedFile $file)
+    {
+        $this->directory = 'img/tricks';
+
+        $filename = $file->getClientOriginalName();
+        $path = MyStorage::getUniqueFileName($this->filesystem, $filename, $this->getFullPath($this->directory));
+
+        $success = Image::make($file->getRealPath())
+                        ->save($path);
+
+        if (! $success) {
+            return false;
+        }
+
+        return substr($path, strlen(public_path()));
     }
 }
