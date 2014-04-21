@@ -66,7 +66,7 @@
                 // yhbyun modified original source
                 $dropzone.find('.js-fileupload').fileupload().fileupload("option", {
                     //url: Ghost.paths.subdir + '/ghost/upload/',
-                    url: '/upload/',
+                    url: '/user/tricks/upload/',
                     headers: {
                         'X-CSRF-Token': $("meta[name='csrf-param']").attr('content')
                     },
