@@ -90,7 +90,7 @@
                     {{Form::close()}}
 
                     {{ Form::open(array('class'=>'form-vertical','id'=>'save-trick-form','role'=>'form'))}}
-                    {{ Form::hidden('title', $trick->title, array('id'=>'trick-title')) }}
+                    {{ Form::hidden('title', null, array('id'=>'trick-title')) }}
                     {{ Form::hidden('description', null, array('id'=>'trick-desc')) }}
 					    <div class="form-group">
 					      <label>Trick code: </label>
