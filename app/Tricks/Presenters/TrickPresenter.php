@@ -6,6 +6,7 @@ use App;
 use Carbon\Carbon;
 use Misd\Linkify\Linkify;
 use MyString;
+use Parsedown;
 use Tricks\User;
 use Tricks\Trick;
 use Tricks\Category;
@@ -188,7 +189,7 @@ class TrickPresenter extends BasePresenter
         $description = $this->resource->description;
 
         $description = $this->convertMarkdown($description);
-        $description = $this->convertNewlines($description);
+        //$description = $this->convertNewlines($description);
         $description = $this->formatGists($description);
         $description = $this->linkify($description);
 
