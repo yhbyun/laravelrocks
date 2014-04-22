@@ -7,9 +7,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta property="og:title" content="Laravel 팁" />
+        <meta property="og:title" content="@yield('title') | laravelrocks.com" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="http://laravelrocks.com" />
+        <meta property="og:url" content="{{ URL::current() }}" />
         <meta property="og:image" content="http://laravelrocks.com/img/logo.png" />
         <meta property="og:site_name" content="laravelrocks.com" />
         <meta property="og:description" content="@yield('description')" />
