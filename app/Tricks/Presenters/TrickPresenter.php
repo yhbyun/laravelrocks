@@ -6,7 +6,6 @@ use App;
 use Carbon\Carbon;
 use Misd\Linkify\Linkify;
 use MyString;
-use Parsedown;
 use Tricks\User;
 use Tricks\Trick;
 use Tricks\Category;
