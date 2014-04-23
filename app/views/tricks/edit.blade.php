@@ -84,7 +84,7 @@
                                                 <a class="markdown-help" href="https://help.github.com/articles/github-flavored-markdown""><span class="hidden">What is Markdown?</span></a>
                                             </header>
                                             <section id="entry-markdown-content" class="entry-markdown-content" data-filestorage="true">
-                                                {{Form::textarea('description', $trick->description, array('id' => 'entry-markdown', 'placeholder'=>'Give detailed description of the trick'));}}
+                                                {{Form::textarea('description', htmlspecialchars($trick->description), array('id' => 'entry-markdown', 'placeholder'=>'Give detailed description of the trick'));}}
                                             </section>
                                         </section>
 
