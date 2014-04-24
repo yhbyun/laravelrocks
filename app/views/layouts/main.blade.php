@@ -3,7 +3,6 @@
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="https://www.facebook.com/2008/fbml">
     <head>
-        @section('description', 'Laravel rocks는 Laravel 관련 팁을 모아 놓은 사이트입니다')
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,10 +13,11 @@
         <meta property="og:site_name" content="laravelrocks.com" />
         <meta property="og:description" content="@yield('description')" />
         <meta name="description" content="@yield('description')">
-        <meta name="author" content="YongHun Byun, @river">
-        <title>@yield('title') | laravelrocks.com</title>
-        <link rel="shortcut icon" href="{{ URL::asset('img/favicon.ico') }}">
-        {{{ stylesheet_link_tag('application') }}}
+        <meta name="author" content="{{ trans('layouts.meta_author') }}">
+        <title>@yield('title')
+ | {{ trans('layouts.site_title') }}</title>
+		<link rel="shortcut icon" href="{{ URL::asset('img/favicon.ico') }}">
+		{{{ stylesheet_link_tag('application') }}}
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
         @yield('styles')
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->

@@ -2,11 +2,11 @@
 
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>laravelrocks</title>
-        <link>http://www.laravelrocks.com</link>
+        <title>{{ trans('feeds.title') }}</title>
+        <link>{{ trans('feeds.link') }}</link>
         <atom:link href="{{ Request::url() }}" rel="self"></atom:link>
-        <description>Laravel rocks는 Laravel 관련 팁을 모아 놓은 사이트입니다</description>
-        <language>ko-kr</language>
+        <description>{{ trans('feeds.sub_title') }}</description>
+        <language>{{ trans('feeds.language') }}</language>
         <lastBuildDate>{{ Carbon\Carbon::now()->toRSSString() }}</lastBuildDate>
 
 @foreach($tricks as $trick)

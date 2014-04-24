@@ -1,6 +1,6 @@
 <div id="footer">
   <div class="container">
-    <p class="text-muted credit">Website based on <a href="http://laravel-tricks.com">laraveltricks</a> by <a target="_blank" href="http://about.me/yhbyun">YongHun Byun</a>
+    <p class="text-muted credit">{{ trans('partials.credits') }}</a>
     <span class="pull-right">
         <a target="_blank" href="http://twitter.com/laravelrocks" title="Follow updates"><i class="fa fa-twitter fa-lg"></i></a>
         |

@@ -45,18 +45,18 @@
 				<div class="content-box">
 					@if(Auth::check() && (Auth::user()->id == $trick->user_id))
 						<div class="pull-right">
-							<a data-toggle="modal" href="#deleteModal">Delete</a> |
-                            <a href="{{ route('tricks.show', [ $trick->slug ]) }}">View</a>
+							<a data-toggle="modal" href="#deleteModal">{{ trans('tricks.delete') }}</a> |
+							<a href="{{ route('tricks.show', [ $trick->slug ]) }}">View</a>
 							@include('tricks.delete',['link'=>$trick->deleteLink])
 						</div>
 					@endif
 					<h1 class="page-title">
-						Editing trick
+						{{ trans('tricks.editing_trick') }}
 					</h1>
 					@if(Session::get('errors'))
 					    <div class="alert alert-danger alert-dismissable">
 					        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-					         <h5>There were errors while editing this trick:</h5>
+					         <h5>{{ trans('tricks.errors_while_editing') }}</h5>
 					         @foreach($errors->all('<li>:message</li>') as $message)
 					            {{$message}}
 					         @endforeach
@@ -70,8 +70,8 @@
 					@endif
 					{{ Form::open(array('class'=>'form-vertical','id'=>'save-fake-form','role'=>'form'))}}
 					    <div class="form-group">
-					    	<label for="title">Title</label>
-					    	{{Form::text('title', $trick->title, array('class'=>'form-control','placeholder'=>'Name this trick', 'id'=>'trick-fake-title'));}}
+					    	<label for="title">{{ trans('tricks.title') }}</label>
+					    	{{Form::text('title', $trick->title, array('class'=>'form-control','placeholder'=>trans('tricks.title_placeholder'),'id'=>'trick-fake-title'))}}
 					    </div>
                         <div class="form-group">
                             <label for="description">Description</label>
@@ -84,7 +84,7 @@
                                                 <a class="markdown-help" href="https://help.github.com/articles/github-flavored-markdown""><span class="hidden">What is Markdown?</span></a>
                                             </header>
                                             <section id="entry-markdown-content" class="entry-markdown-content" data-filestorage="true">
-                                                {{Form::textarea('description', htmlspecialchars($trick->description), array('id' => 'entry-markdown', 'placeholder'=>'Give detailed description of the trick'));}}
+                                                {{Form::textarea('description', htmlspecialchars($trick->description), array('id' => 'entry-markdown', 'placeholder'=>trans('tricks.trick_description_placeholder')));}}
                                             </section>
                                         </section>
 
@@ -106,20 +106,20 @@
                     {{ Form::hidden('title', $trick->title, array('id'=>'trick-title')) }}
                     {{ Form::hidden('description', null, array('id'=>'trick-desc')) }}
 					    <div class="form-group">
-					      <label>Trick code: </label>
+					      <label>{{ trans('tricks.trick_code') }}</label>
 					      <div id="editor-content" class="content-editor"></div>
 					      {{Form::textarea('code', $trick->code, ['id'=>'code-editor','style'=>'display:none;']);}}
 					    </div>
 					    <div class="form-group">
-					    	{{ Form::select('tags[]', $tagList, $selectedTags, array('multiple','id'=>'tags','placeholder'=>'Tag this trick','class' => 'form-control')); }}
+					    	{{ Form::select('tags[]', $tagList, $selectedTags, array('multiple','id'=>'tags','placeholder'=>trans('tricks.tag_trick_placeholder'),'class' => 'form-control')) }}
 					    </div>
 					    <div class="form-group">
-					    	{{ Form::select('categories[]', $categoryList, $selectedCategories, array('multiple','id'=>'categories','placeholder'=>'Choose Categories for this trick','class' => 'form-control')); }}
+					    	{{ Form::select('categories[]', $categoryList, $selectedCategories, array('multiple','id'=>'categories','placeholder'=>trans('tricks.categorize_trick_placeholder'),'class' => 'form-control')) }}
 					    </div>
 					    <div class="form-group">
 					        <div class="text-right">
-					          <button type="submit" id="save-section" class="btn btn-primary ladda-button" data-style="expand-right">
-					            Update Trick
+					          <button type="submit"  id="save-section" class="btn btn-primary ladda-button" data-style="expand-right">
+					            {{ trans('tricks.update_trick') }}
 					          </button>
 					        </div>
 					    </div>
