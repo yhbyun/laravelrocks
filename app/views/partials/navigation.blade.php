@@ -18,6 +18,8 @@
 
 				{{ Navigation::make(Request::path()) }}
 
+				<li class="hidden-xs"><a href="http://laravel.link/">Laravel Links</a></li>
+
 				@if(Auth::guest())
 					<li class="visible-xs"><a href="{{ url('register') }}">{{ trans('partials.register') }}</a></li>
 					<li class="visible-xs"><a href="{{ url('login') }}">{{ trans('partials.login') }}</a></li>
