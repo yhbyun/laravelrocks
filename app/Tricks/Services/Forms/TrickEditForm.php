@@ -39,6 +39,7 @@ class TrickEditForm extends AbstractForm
     protected function getPreparedRules()
     {
         $this->rules['title'] .= ',' . $this->id;
+        $this->rules['slug'] .= ',' . $this->id;
 
         return $this->rules;
     }
