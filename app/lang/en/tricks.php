@@ -13,6 +13,8 @@ return array(
 	'tag_trick_placeholder' => 'Tag this trick',
 	'categorize_trick_placeholder' => 'Choose Categories for this trick',
 	'title_placeholder' => 'Name this trick',
+    'slug' => 'Slug',
+    'slug_placeholder' => 'Slug',
 	'description' => 'Description',
 	'remove_trick' => 'Remove trick',
 	'trick_description_placeholder' => 'Give detailed description of the trick',

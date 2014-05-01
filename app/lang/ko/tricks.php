@@ -13,6 +13,8 @@ return array(
 	'tag_trick_placeholder' => 'Tag this trick',
 	'categorize_trick_placeholder' => 'Choose Categories for this trick',
 	'title_placeholder' => '제목을 입력하세요',
+    'slug' => 'Slug',
+    'slug_placeholder' => 'Slug',
 	'description' => '내용',
 	'remove_trick' => 'Remove trick',
 	'trick_description_placeholder' => '내용을 입력하세요',

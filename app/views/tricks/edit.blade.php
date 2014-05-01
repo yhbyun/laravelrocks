@@ -33,6 +33,7 @@
             // 이를 피하기 위해서 폼을 두개로 나누고 설명에 대한 값은 여기서 설정함
             $('#trick-desc').val(window.Ghost.editor.value());
             $('#trick-title').val($('#trick-fake-title').val());
+            $('#trick-slug').val($('#trick-slug-title').val());
         });
     });
 </script>
@@ -74,6 +75,10 @@
 					    	{{Form::text('title', $trick->title, array('class'=>'form-control','placeholder'=>trans('tricks.title_placeholder'),'id'=>'trick-fake-title'))}}
 					    </div>
                         <div class="form-group">
+                            <label for="slug">{{ trans('tricks.slug') }}</label>
+                            {{Form::text('slug', $trick->slug, array('class'=>'form-control','placeholder'=>trans('tricks.slug_placeholder'),'id'=>'trick-slug-title'))}}
+                        </div>
+                        <div class="form-group">
                             <label for="description">Description</label>
                             <div class="editor">
                                 <div class="outer">
@@ -104,6 +109,7 @@
 
                     {{ Form::open(array('class'=>'form-vertical','id'=>'save-trick-form','role'=>'form'))}}
                     {{ Form::hidden('title', $trick->title, array('id'=>'trick-title')) }}
+                    {{ Form::hidden('slug', null, array('id'=>'trick-slug')) }}
                     {{ Form::hidden('description', null, array('id'=>'trick-desc')) }}
 					    <div class="form-group">
 					      <label>{{ trans('tricks.trick_code') }}</label>

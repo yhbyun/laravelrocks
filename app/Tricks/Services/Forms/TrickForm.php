@@ -11,6 +11,7 @@ class TrickForm extends AbstractForm
      */
     protected $rules = [
         'title'         => 'required|min:4|unique:tricks,title',
+        'slug'          => 'unique:tricks,slug',
         'description'   => 'required|min:10',
         'tags'          => 'required',
         'categories'    => 'required'
@@ -24,7 +25,7 @@ class TrickForm extends AbstractForm
     public function getInputData()
     {
         return array_only($this->inputData, [
-            'title', 'description', 'tags', 'categories', 'code'
+            'title', 'slug', 'description', 'tags', 'categories', 'code'
         ]);
     }
 }
