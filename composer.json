@@ -21,7 +21,8 @@
 	"require-dev" : {
 		"mockery/mockery"         : "dev-master",
 		"phpunit/phpunit"         : "3.7.*",
-		"codeception/aspect-mock" : "*"
+		"codeception/aspect-mock" : "*",
+		"way/generators": "2.*"
 	},
 	"autoload": {
 		"classmap": [
