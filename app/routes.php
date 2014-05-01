@@ -6,6 +6,7 @@ Route::when('*', 'trick.view_throttle');
 # Route patterns
 Route::pattern('tag_slug', '[^/]+');
 Route::pattern('trick_slug', '[^/]+');
+Route::pattern('id', '[0-9]+');
 
 # Admin routes
 Route::group([ 'prefix' => 'admin', 'namespace' => 'Controllers\Admin' ], function () {
@@ -32,7 +33,7 @@ Route::group([ 'namespace' => 'Controllers' ], function () {
 
     # Trick routes
     Route::get('tricks', ['as' => 'tricks.showbase', function() { return Redirect::route('home'); }]);
-    Route::get('tricks/{trick_id}-{trick_slug}', [ 'as' => 'tricks.show', 'uses' => 'TricksController@getShow' ]);
+    Route::get('tricks/{id}-{trick_slug}', [ 'as' => 'tricks.show', 'uses' => 'TricksController@getShow' ]);
     Route::get('tricks/{trick_slug?}', [ 'as' => 'tricks.showold', 'uses' => 'TricksController@getShowOld' ]);
     Route::post('tricks/{trick_slug}/like', [ 'as' => 'tricks.like', 'uses' => 'TricksController@postLike' ]);
 
