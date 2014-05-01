@@ -47,7 +47,7 @@
                             </div>
                         </div>
                     </div>
-                    <p>{{ $trick->prettyDescription }}</p>
+                    {{ $trick->prettyDescription }}
                     @if ($trick->code)
                     <pre><code class="php">{{{ $trick->code }}}</code></pre>
                     @endif
