@@ -370,6 +370,10 @@ h2.title-between {
     padding: 20px;
     margin-bottom: 20px;
 }
+.content-box p {
+    padding:15px 0;
+    margin:0;
+}
 .nav.nav-pills > li {
     float: none;
 }
