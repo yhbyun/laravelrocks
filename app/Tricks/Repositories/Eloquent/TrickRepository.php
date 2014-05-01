@@ -76,6 +76,17 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
     }
 
     /**
+     * Find a trick by the given id.
+     *
+     * @param  integer $id
+     * @return \Tricks\Trick
+     */
+    public function find($id)
+    {
+        return $this->model->find($id);
+    }
+
+    /**
      * Find a trick by the given slug.
      *
      * @param  string $slug

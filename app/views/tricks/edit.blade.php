@@ -47,7 +47,7 @@
 					@if(Auth::check() && (Auth::user()->id == $trick->user_id))
 						<div class="pull-right">
 							<a data-toggle="modal" href="#deleteModal">{{ trans('tricks.delete') }}</a> |
-							<a href="{{ route('tricks.show', [ $trick->slug ]) }}">View</a>
+							<a href="{{ route('tricks.show', [$trick->id, $trick->slug]) }}">View</a>
 							@include('tricks.delete',['link'=>$trick->deleteLink])
 						</div>
 					@endif

@@ -37,7 +37,34 @@ class TricksController extends BaseController
      * @param  string $slug
      * @return \Response
      */
-    public function getShow($slug = null)
+    public function getShow($id, $slug)
+    {
+        $trick = $this->tricks->find($id);
+
+        if (is_null($trick)) {
+            return $this->redirectRoute('home');
+        }
+
+        if ($trick->slug !== $slug) {
+            return \Redirect::route('tricks.show', [$trick->id, $trick->slug], 301);
+        }
+
+        Event::fire('trick.view', $trick);
+
+        $next = $this->tricks->findNextTrick($trick);
+        $prev = $this->tricks->findPreviousTrick($trick);
+
+        $this->view('tricks.single', compact('trick', 'next', 'prev'));
+    }
+
+    /**
+     * Show the single trick page.
+     * old tricks url patter : /tricks/slug
+     *
+     * @param  string $slug
+     * @return \Response
+     */
+    public function getShowOld($slug = null)
     {
         if (is_null($slug)) {
             return $this->redirectRoute('home');
@@ -49,12 +76,7 @@ class TricksController extends BaseController
             return $this->redirectRoute('home');
         }
 
-        Event::fire('trick.view', $trick);
-
-        $next = $this->tricks->findNextTrick($trick);
-        $prev = $this->tricks->findPreviousTrick($trick);
-
-        $this->view('tricks.single', compact('trick', 'next', 'prev'));
+        return \Redirect::route('tricks.show', [$trick->id, $trick->slug], 301);
     }
 
     /**

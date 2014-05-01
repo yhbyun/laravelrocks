@@ -26,6 +26,14 @@ interface TrickRepositoryInterface
     public function findAllFavorites(User $user, $perPage = 9);
 
     /**
+     * Find a trick by the given id.
+     *
+     * @param  integer $id
+     * @return \Tricks\Trick
+     */
+    public function find($id);
+
+    /**
      * Find a trick by the given slug.
      *
      * @param  string $slug

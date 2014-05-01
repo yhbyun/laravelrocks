@@ -11,7 +11,7 @@
 @foreach($tricks as $trick)
     <entry>
         <title>{{ $trick->title }}</title>
-        <link href="{{ route('tricks.show', $trick->slug) }}" />
+        <link href="{{ route('tricks.show', [$trick->id, $trick->slug]) }}" />
         <id>{{ $trick->tagUri }}</id>
         <updated>{{ $trick->updated_at->toATOMString() }}</updated>
         <content type="html">{{{ $trick->prettyDescription }}}</content>

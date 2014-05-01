@@ -31,7 +31,9 @@ Route::group([ 'namespace' => 'Controllers' ], function () {
     Route::get('about', [ 'as' => 'about', 'uses' => 'HomeController@getAbout' ]);
 
     # Trick routes
-    Route::get('tricks/{trick_slug?}', [ 'as' => 'tricks.show', 'uses' => 'TricksController@getShow' ]);
+    Route::get('tricks', ['as' => 'tricks.showbase', function() { return Redirect::route('home'); }]);
+    Route::get('tricks/{trick_id}-{trick_slug}', [ 'as' => 'tricks.show', 'uses' => 'TricksController@getShow' ]);
+    Route::get('tricks/{trick_slug?}', [ 'as' => 'tricks.showold', 'uses' => 'TricksController@getShowOld' ]);
     Route::post('tricks/{trick_slug}/like', [ 'as' => 'tricks.like', 'uses' => 'TricksController@postLike' ]);
 
     # Browse routes

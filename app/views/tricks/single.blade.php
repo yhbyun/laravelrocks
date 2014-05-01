@@ -114,7 +114,7 @@
                         @endif
                         <div class="clearfix">
                             @if($prev)
-                                <a  href="{{ route('tricks.show', $prev->slug) }}"
+                                <a  href="{{ route('tricks.show', [$prev->id, $prev->slug]) }}"
                                     title="{{ $prev->title }}" data-toggle="tooltip"
                                     class="btn btn-sm btn-primary">
                                         &laquo; Previous Trick
@@ -122,7 +122,7 @@
                             @endif
 
                             @if($next)
-                                <a  href="{{ route('tricks.show', $next->slug) }}"
+                                <a  href="{{ route('tricks.show', [$next->id, $next->slug]) }}"
                                     title="{{ $next->title }}" data-toggle="tooltip"
                                     class="btn btn-sm btn-primary pull-right">
                                         Next Trick &raquo;

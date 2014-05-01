@@ -12,8 +12,8 @@
 @foreach($tricks as $trick)
         <item>
             <title>{{ $trick->title }}</title>
-            <link>{{ route('tricks.show', $trick->slug) }}</link>
-            <guid>{{ route('tricks.show', $trick->slug) }}</guid>
+            <link>{{ route('tricks.show', [$trick->id, $trick->slug]) }}</link>
+            <guid>{{ route('tricks.show', [$trick->id, $trick->slug]) }}</guid>
             <description><![CDATA[{{{ $trick->prettyDescription }}}]]></description>
             <pubDate>{{ $trick->created_at->toRSSString() }}</pubDate>
         </item>
