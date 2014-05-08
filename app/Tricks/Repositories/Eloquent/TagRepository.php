@@ -72,6 +72,7 @@ class TagRepository extends AbstractRepository implements TagRepositoryInterface
         return $this->model
                     ->leftJoin('tag_trick', 'tags.id', '=', 'tag_trick.tag_id')
                     ->leftJoin('tricks', 'tricks.id', '=', 'tag_trick.trick_id')
+                    ->where('tricks.draft', '=', 0)
                     ->groupBy('tags.slug')
                     ->orderBy('trick_count', 'desc')
                     ->get([

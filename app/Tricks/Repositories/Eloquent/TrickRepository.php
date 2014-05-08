@@ -105,7 +105,7 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
      */
     public function findAllPaginated($perPage = 9)
     {
-        $tricks = $this->model->orderBy('created_at', 'DESC')->paginate($perPage);
+        $tricks = $this->model->whereDraft(0)->orderBy('created_at', 'DESC')->paginate($perPage);
 
         return $tricks;
     }
@@ -129,7 +129,7 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
      */
     public function findMostCommented($perPage = 9)
     {
-        $tricks = $this->model->orderBy('created_at', 'desc')->get();
+        $tricks = $this->model->whereDraft(0)->orderBy('created_at', 'desc')->get();
 
         $tricks = Disqus::appendCommentCounts($tricks);
 
@@ -153,7 +153,7 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
      */
     public function findMostPopular($per_page = 9)
     {
-        return $this->model
+        return $this->model->whereDraft(0)
                     ->orderByRaw('(tricks.vote_cache * 5 + tricks.view_cache) DESC')
                     ->paginate($per_page);
     }
@@ -165,7 +165,7 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
      */
     public function findForFeed()
     {
-        return $this->model->orderBy('created_at', 'desc')->limit(15)->get();
+        return $this->model->whereDraft(0)->orderBy('created_at', 'desc')->limit(15)->get();
     }
 
     /**
@@ -175,7 +175,7 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
      */
     public function findAllForSitemap()
     {
-        return $this->model->orderBy('created_at', 'desc')->get();
+        return $this->model->whereDraft(0)->orderBy('created_at', 'desc')->get();
     }
 
     /**
@@ -193,7 +193,7 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
             throw new CategoryNotFoundException('The category "'.$slug.'" does not exist!');
         }
 
-        $tricks = $category->tricks()->orderBy('created_at', 'DESC')->paginate($perPage);
+        $tricks = $category->tricks()->whereDraft(0)->orderBy('created_at', 'DESC')->paginate($perPage);
 
         return [ $category, $tricks ];
     }
@@ -208,15 +208,18 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
     public function searchByTermPaginated($term, $perPage = 12)
     {
         $tricks =  $this->model
-                        ->orWhere('title', 'LIKE', '%'.$term.'%')
-                        ->orWhere('description', 'LIKE', '%'.$term.'%')
-                        ->orWhereHas('tags', function ($query) use ($term) {
-                            $query->where('title', 'LIKE', '%' . $term . '%')
-                                  ->orWhere('slug', 'LIKE', '%' . $term . '%');
-                        })
-                        ->orWhereHas('categories', function ($query) use ($term) {
-                            $query->where('name', 'LIKE', '%' . $term . '%')
-                                  ->orWhere('slug', 'LIKE', '%' . $term . '%');
+                        ->whereDraft(0)
+                        ->where(function ($query) use ($term) {
+                            $query->Where('title', 'LIKE', '%'.$term.'%')
+                                  ->orWhere('description', 'LIKE', '%'.$term.'%')
+                                  ->orWhereHas('tags', function ($query) use ($term) {
+                                      $query->where('title', 'LIKE', '%' . $term . '%')
+                                            ->orWhere('slug', 'LIKE', '%' . $term . '%');
+                                  })
+                                  ->orWhereHas('categories', function ($query) use ($term) {
+                                      $query->where('name', 'LIKE', '%' . $term . '%')
+                                      ->orWhere('slug', 'LIKE', '%' . $term . '%');
+                                  });
                         })
                         ->orderBy('created_at', 'desc')
                         ->orderBy('title', 'asc')
@@ -266,6 +269,7 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
         }
         $trick->description = $data['description'];
         $trick->code        = $data['code'];
+        $trick->draft       = $data['draft'];
 
         $trick->save();
 
@@ -293,6 +297,7 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
         }
         $trick->description = $data['description'];
         $trick->code        = $data['code'];
+        $trick->draft       = $data['draft'];
         $trick->last_updated_at = new \DateTime;
 
         $trick->save();
@@ -332,7 +337,7 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
             throw new TagNotFoundException('The tag "' . $slug . '" does not exist!');
         }
 
-        $tricks = $tag->tricks()->orderBy('created_at', 'desc')->paginate($perPage);
+        $tricks = $tag->tricks()->whereDraft(0)->orderBy('created_at', 'desc')->paginate($perPage);
 
         return [ $tag, $tricks ];
     }
@@ -347,8 +352,9 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
     {
         $next = $this->model->where('created_at', '>=', $trick->created_at)
                             ->where('id', '<>', $trick->id)
+                            ->whereDraft(0)
                             ->orderBy('created_at', 'asc')
-                            ->first([ 'slug', 'title' ]);
+                            ->first([ 'id', 'slug', 'title' ]);
 
         return $next;
     }
@@ -363,8 +369,9 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
     {
         $prev = $this->model->where('created_at', '<=', $trick->created_at)
                             ->where('id', '<>', $trick->id)
+                            ->whereDraft(0)
                             ->orderBy('created_at', 'desc')
-                            ->first([ 'slug', 'title' ]);
+                            ->first([ 'id', 'slug', 'title' ]);
 
         return $prev;
     }

@@ -109,6 +109,10 @@
 					    <div class="form-group">
 					    	<p>{{ Form::select('categories[]', $categoryList, null, array('multiple','id'=>'categories','placeholder'=>trans('tricks.categorize_trick_placeholder'),'class' => 'form-control')) }}</p>
 					    </div>
+                        <div class="form-group">
+                            <label>{{ trans('tricks.draft') }}</label>
+                            {{ Form::checkbox('draft', true) }}
+                        </div>
 					    <div class="form-group">
 					        <div class="text-right">
 					          <button type="submit"  id="save-section" class="btn btn-primary ladda-button" data-style="expand-right">

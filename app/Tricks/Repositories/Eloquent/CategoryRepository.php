@@ -60,6 +60,7 @@ class CategoryRepository extends AbstractRepository implements CategoryRepositor
     {
         return $this->model->leftJoin('category_trick', 'categories.id', '=', 'category_trick.category_id')
                            ->leftJoin('tricks', 'tricks.id', '=', 'category_trick.trick_id')
+                           ->where('tricks.draft', '=', 0)
                            ->groupBy('categories.slug')
                            ->orderBy('trick_count', 'desc')
                            ->get([

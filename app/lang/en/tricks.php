@@ -19,6 +19,7 @@ return array(
 	'remove_trick' => 'Remove trick',
 	'trick_description_placeholder' => 'Give detailed description of the trick',
 	'trick_code' => 'Trick code:',
+    'draft' => 'Draft:',
 	'save_trick' => 'Save Trick',
 	'editing_trick' => 'Editing trick',
 	'errors_while_editing' => 'There were errors while editing this trick:',

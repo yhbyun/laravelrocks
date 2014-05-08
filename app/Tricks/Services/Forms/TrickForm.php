@@ -14,7 +14,8 @@ class TrickForm extends AbstractForm
         'slug'          => 'unique:tricks,slug',
         'description'   => 'required|min:10',
         'tags'          => 'required',
-        'categories'    => 'required'
+        'categories'    => 'required',
+        'draft'         => 'required'
     ];
 
     /**
@@ -25,7 +26,7 @@ class TrickForm extends AbstractForm
     public function getInputData()
     {
         return array_only($this->inputData, [
-            'title', 'slug', 'description', 'tags', 'categories', 'code'
+            'title', 'slug', 'description', 'tags', 'categories', 'code', 'draft'
         ]);
     }
 }

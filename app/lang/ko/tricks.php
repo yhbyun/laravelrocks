@@ -19,6 +19,7 @@ return array(
 	'remove_trick' => 'Remove trick',
 	'trick_description_placeholder' => '내용을 입력하세요',
 	'trick_code' => 'Trick code:',
+    'draft' => 'Draft:',
 	'save_trick' => '저장',
 	'editing_trick' => '팁 수정',
 	'errors_while_editing' => 'There were errors while editing this trick:',

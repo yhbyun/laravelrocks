@@ -21,7 +21,8 @@ class TrickEditForm extends AbstractForm
         'slug'          => 'required|unique:tricks,slug',
         'description'   => 'required|min:10',
         'tags'          => 'required',
-        'categories'    => 'required'
+        'categories'    => 'required',
+        'draft'         => 'required'
     ];
 
     public function __construct($id)
@@ -52,7 +53,7 @@ class TrickEditForm extends AbstractForm
     public function getInputData()
     {
         return array_only($this->inputData, [
-            'title', 'slug', 'description', 'tags', 'categories', 'code'
+            'title', 'slug', 'description', 'tags', 'categories', 'code', 'draft'
         ]);
     }
 }
