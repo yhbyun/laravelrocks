@@ -269,7 +269,7 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
         }
         $trick->description = $data['description'];
         $trick->code        = $data['code'];
-        $trick->draft       = $data['draft'];
+        $trick->draft       = get_if_set($data['draft'], false);
 
         $trick->save();
 
@@ -297,7 +297,7 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
         }
         $trick->description = $data['description'];
         $trick->code        = $data['code'];
-        $trick->draft       = $data['draft'];
+        $trick->draft       = get_if_set($data['draft'], false);
         $trick->last_updated_at = new \DateTime;
 
         $trick->save();
