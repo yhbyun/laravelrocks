@@ -35,7 +35,10 @@
 		"psr-0": {
 			"Controllers": "app/",
 			"Tricks": "app/"
-		}
+		},
+        "files": [
+            "app/libraries/helpers.php"
+        ]
 	},
 	"scripts": {
 		"post-install-cmd": [
