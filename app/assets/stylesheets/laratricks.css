@@ -343,6 +343,9 @@ h2.title-between {
 .trick-card-inner:hover .fa {
     color: #FB503B;
 }
+.draft .trick-card-inner {
+    border: 4px solid #ccc;
+}
 
 .push-down {
     margin-bottom: 10px;
@@ -381,6 +384,11 @@ h2.title-between {
 .content-box p {
     padding:15px 0;
     margin:0;
+}
+.content-box img {
+    display: block;
+    height: auto;
+    max-width: 100%;
 }
 .nav.nav-pills > li {
     float: none;
