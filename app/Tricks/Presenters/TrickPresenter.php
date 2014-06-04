@@ -160,9 +160,11 @@ class TrickPresenter extends BasePresenter
      */
     public function pageDescription()
     {
-        $description = $this->resource->description;
-        $maxLength   = 160;
+        $html = $this->convertMarkdown($this->resource->description);
+        $description = strip_tags($html);
         $description = str_replace('"', '', $description);
+
+        $maxLength   = 160;
 
         if (strlen($description) > $maxLength) {
             while (strlen($description) + 3 > $maxLength) {
@@ -172,16 +174,19 @@ class TrickPresenter extends BasePresenter
             $description .= '...';
         }
 
-        return e($description);
+        return e(trim($description));
     }
 
-    // TODO : 마크업 사제. laravel.io의 excerpt 메소드 참고
+    // laravel.io의 excerpt 메소드 참고
     public function abstraction()
     {
         $description = $this->resource->description;
-        $maxLength   = 255;
+        $html = $this->convertMarkdown($description);
+        $text = strip_tags($html);
 
-        return MyString::cutString($description, $maxLength);
+        $maxLength = 255;
+
+        return MyString::cutString($text, $maxLength);
     }
 
     public function prettyDescription() {
