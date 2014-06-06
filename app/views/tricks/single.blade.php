@@ -47,7 +47,9 @@
                             </div>
                         </div>
                     </div>
-                    {{ $trick->prettyDescription }}
+                    <div class="markdown-body">
+                        {{ $trick->prettyDescription }}
+                    </div>
                     @if ($trick->code)
                     <pre><code class="php">{{{ $trick->code }}}</code></pre>
                     @endif
