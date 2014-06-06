@@ -11,5 +11,6 @@
     "lodash": "2.4.1",
     "nprogress": "0.1.2",
     "showdown": "https://github.com/ErisDS/showdown.git#v0.3.2-ghost",
+    "github-markdown-css": "~0.1.0"
   }
 }
