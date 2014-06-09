@@ -1,15 +1,15 @@
 {
-	"name": "laravel/laravel",
-	"description": "The Laravel Framework.",
-	"keywords": ["framework", "laravel"],
-	"license": "MIT",
-	"require": {
-		"laravel/framework": "4.1.*",
-		"mccool/laravel-auto-presenter": "1.0.*",
-		"league/oauth2-client": "dev-master",
-		"intervention/image": "1.5.*",
-		"thomaswelton/laravel-gravatar": "0.0.*",
-		"roumen/sitemap": "2.4.*",
+    "name": "laravel/laravel",
+    "description": "The Laravel Framework.",
+    "keywords": ["framework", "laravel"],
+    "license": "MIT",
+    "require": {
+        "laravel/framework": "4.2.*",
+        "mccool/laravel-auto-presenter": "1.0.*",
+        "league/oauth2-client": "dev-master",
+        "intervention/image": "1.5.*",
+        "thomaswelton/laravel-gravatar": "0.0.*",
+        "roumen/sitemap": "2.4.*",
         "codesleeve/asset-pipeline": "dev-master",
         "michelf/php-markdown": "1.4.*@dev",
         "nickcernis/html-to-markdown": "dev-master",
@@ -17,44 +17,44 @@
         "mews/purifier" : "dev-master",
         "barryvdh/laravel-ide-helper": "1.*",
         "itsgoingd/clockwork": "1.*"
-	},
-	"require-dev" : {
-		"mockery/mockery"         : "dev-master",
-		"phpunit/phpunit"         : "3.7.*",
-		"codeception/aspect-mock" : "*",
-		"way/generators": "2.*"
-	},
-	"autoload": {
-		"classmap": [
-			"app/commands",
-			"app/database/migrations",
-			"app/database/seeds",
+    },
+    "require-dev" : {
+        "mockery/mockery"         : "dev-master",
+        "phpunit/phpunit"         : "3.7.*",
+        "codeception/aspect-mock" : "*",
+        "way/generators": "2.*"
+    },
+    "autoload": {
+        "classmap": [
+            "app/commands",
+            "app/database/migrations",
+            "app/database/seeds",
             "app/libraries",
-			"app/tests/TestCase.php"
-		],
-		"psr-0": {
-			"Controllers": "app/",
-			"Tricks": "app/"
-		},
+            "app/tests/TestCase.php"
+        ],
+        "psr-0": {
+            "Controllers": "app/",
+            "Tricks": "app/"
+        },
         "files": [
             "app/libraries/helpers.php"
         ]
-	},
-	"scripts": {
-		"post-install-cmd": [
-			"php artisan optimize"
-		],
-		"post-update-cmd": [
-			"php artisan clear-compiled",
-			"php artisan optimize"
-		],
-		"post-create-project-cmd": [
-			"php artisan key:generate"
-		]
-	},
-	"config": {
-		"preferred-install": "dist"
-	},
-	"minimum-stability": "dev",
-	"prefer-stable": true
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "php artisan clear-compiled",
+            "php artisan optimize"
+        ],
+        "post-update-cmd": [
+            "php artisan clear-compiled",
+            "php artisan optimize"
+        ],
+        "post-create-project-cmd": [
+            "php artisan key:generate"
+        ]
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "minimum-stability": "stable"
 }

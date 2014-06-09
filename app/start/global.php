@@ -43,7 +43,7 @@ App::error(function(Tricks\Exceptions\AbstractNotFoundException $exception, $cod
 |
 | The "down" Artisan command gives you the ability to put an application
 | into maintenance mode. Here, you will define what is displayed back
-| to the user if maintenace mode is in effect for this application.
+| to the user if maintenance mode is in effect for the application.
 |
 */
 
