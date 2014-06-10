@@ -28,13 +28,6 @@ class User extends Eloquent implements UserInterface, RemindableInterface
     protected $hidden = array('password', 'remember_token');
 
 	/**
-	 * The class to used to present the model.
-	 *
-	 * @var string
-	 */
-	public $presenter = 'Tricks\Presenters\UserPresenter';
-
-	/**
 	* Users should not be admin by default
 	*
 	* @var array
@@ -42,6 +35,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface
 	protected $attributes = [
 		'is_admin' => false
 	];
+
+    public function getPresenter()
+    {
+        return $presenter = 'Tricks\Presenters\UserPresenter';
+    }
 
 	/**
 	 * Query the user's social profile.

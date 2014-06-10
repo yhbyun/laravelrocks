@@ -5,7 +5,7 @@
     "license": "MIT",
     "require": {
         "laravel/framework": "4.2.*",
-        "mccool/laravel-auto-presenter": "1.0.*",
+        "mccool/laravel-auto-presenter": "2.*",
         "league/oauth2-client": "dev-master",
         "intervention/image": "1.5.*",
         "thomaswelton/laravel-gravatar": "0.0.*",

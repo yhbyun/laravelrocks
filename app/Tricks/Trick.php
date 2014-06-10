@@ -3,6 +3,7 @@
 namespace Tricks;
 
 use Illuminate\Database\Eloquent\Model;
+use McCool\LaravelAutoPresenter\PresenterInterface;
 
 class Trick extends Model
 {
@@ -12,13 +13,6 @@ class Trick extends Model
      * @var string
      */
     protected $table = 'tricks';
-
-	/**
-	 * The class used to present the model.
-	 *
-	 * @var string
-	 */
-	public $presenter = 'Tricks\Presenters\TrickPresenter';
 
 	/**
 	 * The relations to eager load on every query.
@@ -33,6 +27,11 @@ class Trick extends Model
      * @var array
      */
     protected $dates = ['last_updated_at'];
+
+    public function getPresenter()
+    {
+        return 'Tricks\Presenters\TrickPresenter';
+    }
 
 	/**
 	 * Query the tricks' votes.
