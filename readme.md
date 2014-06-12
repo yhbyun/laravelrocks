@@ -9,9 +9,9 @@ Laravel Rocks는 Laravel 관련 팁을 모아 놓은 웹 사이트이다.
 
 ## Requirements
 
-The Laravel-Rocks website requires a server with PHP 5.4+ that has the MCrypt extension installed.
-
-The database engine that is used to store data for this application could be any of the engines supported by Laravel: MySQL, Postgres, SQLite and SQL Server.
+- PHP 5.4+
+- Laravel 4.2
+- MySQL
 
 ## Copyright and license
 
