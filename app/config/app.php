@@ -128,9 +128,7 @@ return array(
         'Roumen\Sitemap\SitemapServiceProvider',
         'Codesleeve\AssetPipeline\AssetPipelineServiceProvider',
         'Mews\Purifier\PurifierServiceProvider',
-        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'Clockwork\Support\Laravel\ClockworkServiceProvider',
-        'Way\Generators\GeneratorsServiceProvider',
 
         'Tricks\Providers\RepositoryServiceProvider',
         'Tricks\Providers\SocialServiceProvider',

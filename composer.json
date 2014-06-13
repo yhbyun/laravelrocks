@@ -15,14 +15,14 @@
         "nickcernis/html-to-markdown": "dev-master",
         "misd/linkify": "1.1.*@dev",
         "mews/purifier" : "dev-master",
-        "barryvdh/laravel-ide-helper": "1.*",
         "itsgoingd/clockwork": "1.*"
     },
     "require-dev" : {
         "mockery/mockery"         : "dev-master",
         "phpunit/phpunit"         : "3.7.*",
         "codeception/aspect-mock" : "*",
-        "way/generators": "2.*"
+        "way/generators": "2.*",
+        "barryvdh/laravel-ide-helper": "1.*"
     },
     "autoload": {
         "classmap": [
