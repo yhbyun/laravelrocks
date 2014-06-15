@@ -5,7 +5,7 @@ namespace Tricks;
 use Illuminate\Database\Eloquent\Model;
 use McCool\LaravelAutoPresenter\PresenterInterface;
 
-class Trick extends Model
+class Trick extends Model implements PresenterInterface
 {
     /**
      * The table associated with the model.

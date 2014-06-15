@@ -8,8 +8,9 @@ use Illuminate\Auth\UserTrait;
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
+use McCool\LaravelAutoPresenter\PresenterInterface;
 
-class User extends Eloquent implements UserInterface, RemindableInterface
+class User extends Eloquent implements UserInterface, RemindableInterface, PresenterInterface
 {
     use UserTrait, RemindableTrait;
 
@@ -38,7 +39,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface
 
     public function getPresenter()
     {
-        return $presenter = 'Tricks\Presenters\UserPresenter';
+        return 'Tricks\Presenters\UserPresenter';
     }
 
 	/**
