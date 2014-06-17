@@ -1,3 +1,5 @@
+@import "mixins/css3-mixins";
+
 ::selection {
     background-color: rgba(251,80,59,.6);
     color: #fff;
@@ -477,18 +479,6 @@ header {
     left: 0;
     right: 0;
     z-index: 10;
-
-    &.headroom {
-        transition: transform 200ms linear;
-    }
-
-    &.headroom--pinned {
-        transform: translateY(0%);
-    }
-
-    &.headroom--unpinned {
-        transform: translateY(-100%);
-    }
 }
 
 article {
