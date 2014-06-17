@@ -469,3 +469,28 @@ h2.title-between {
     padding-left: 15px;
     padding-right: 15px;
 }
+
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+
+    &.headroom {
+        transition: transform 200ms linear;
+    }
+
+    &.headroom--pinned {
+        transform: translateY(0%);
+    }
+
+    &.headroom--unpinned {
+        transform: translateY(-100%);
+    }
+}
+
+article {
+    padding-top:8.7em;
+}
