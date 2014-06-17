@@ -29,8 +29,12 @@
 
     <body>
         <div id="wrap">
-            @include('partials.navigation')
-            @yield('content')
+            <header>
+                @include('partials.navigation')
+            </header>
+            <article>
+                @yield('content')
+            </article>
         </div>
 
         @include('partials.footer')
@@ -48,6 +52,24 @@
         {{{ javascript_include_tag('application') }}}
         @yield('scripts')
         <script type="text/javascript">
+            (function () {
+                var myElement = document.querySelector("header");
+                // construct an instance of Headroom, passing the element
+                var headroom  = new Headroom(myElement,
+                    {
+                        tolerance: 5,
+                        offset : 205,
+                        classes: {
+                            initial: "animated",
+                            pinned: "slideDown",
+                            unpinned: "slideUp"
+                        }
+                    }
+                );
+                // initialise
+                headroom.init();
+            })();
+
             var disqus_shortname = '{{ Config::get("config.disqus_shortname") }}';
             (function(){var e=document.createElement("script");e.async=true;e.type="text/javascript";e.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("HEAD")[0]||document.getElementsByTagName("BODY")[0]).appendChild(e)})()
 
