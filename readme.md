@@ -26,6 +26,7 @@ Laravel Rocks는 Laravel 관련 팁을 모아 놓은 웹 사이트이다.
 - nprogress
 - showdown
 - github-markdown-css
+- headrooms.js
 
 ## Copyright and license
 
