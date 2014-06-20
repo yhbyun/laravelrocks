@@ -14,7 +14,7 @@ interface TrickRepositoryInterface
      * @param  integer $perPage
      * @return \Illuminate\Pagination\Paginator|\Tricks\Trick[]
      */
-    public function findAllForUser(User $user, $perPage = 9);
+    public function findAllForUser(User $user, $perPage = 15);
 
     /**
      * Find all tricks that are favorited by the given user paginated.
@@ -23,7 +23,7 @@ interface TrickRepositoryInterface
      * @param  integer $perPage
      * @return \Illuminate\Pagination\Paginator|\Tricks\Trick[]
      */
-    public function findAllFavorites(User $user, $perPage = 9);
+    public function findAllFavorites(User $user, $perPage = 15);
 
     /**
      * Find a trick by the given id.
@@ -47,7 +47,7 @@ interface TrickRepositoryInterface
      * @param  integer $perPage
      * @return \Illuminate\Pagination\Paginator|\Tricks\Trick[]
      */
-    public function findAllPaginated($perPage = 9);
+    public function findAllPaginated($perPage = 15);
 
     /**
      * Find all tricks order by the creation date paginated.
@@ -55,7 +55,7 @@ interface TrickRepositoryInterface
      * @param  integer $per_page
      * @return \Illuminate\Pagination\Paginator|\Tricks\Trick[]
      */
-    public function findMostRecent($per_page = 9);
+    public function findMostRecent($perPage = 15);
 
     /**
      * Find the tricks ordered by the number of comments paginated.
@@ -63,7 +63,7 @@ interface TrickRepositoryInterface
      * @param  integer $per_page
      * @return \Illuminate\Pagination\Paginator|\Tricks\Trick[]
      */
-    public function findMostCommented($per_page = 9);
+    public function findMostCommented($perPage = 15);
 
     /**
      * Find the tricks ordered by popularity (most liked / viewed) paginated.
@@ -71,7 +71,7 @@ interface TrickRepositoryInterface
      * @param  integer $per_page
      * @return \Illuminate\Pagination\Paginator|\Tricks\Trick[]
      */
-    public function findMostPopular($per_page = 9);
+    public function findMostPopular($perPage = 15);
 
     /**
      * Find the last 15 tricks that were added.
@@ -103,7 +103,7 @@ interface TrickRepositoryInterface
      * @param  integer $perPage
      * @return array
      */
-    public function findByCategory($slug, $perPage = 9);
+    public function findByCategory($slug, $perPage = 15);
 
     /**
      * Get a list of tag ids that are associated with the given trick.
@@ -153,7 +153,7 @@ interface TrickRepositoryInterface
      * @param  integer $perPage
      * @return array
      */
-    public function findByTag($slug, $perPage = 9);
+    public function findByTag($slug, $perPage = 15);
 
     /**
      * Find the next trick that was added after the given trick.

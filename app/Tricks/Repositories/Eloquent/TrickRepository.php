@@ -54,7 +54,7 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
      * @param  integer $perPage
      * @return \Illuminate\Pagination\Paginator|\Tricks\Trick[]
      */
-    public function findAllForUser(User $user, $perPage = 9)
+    public function findAllForUser(User $user, $perPage = 15)
     {
         $tricks = $user->tricks()->orderBy('created_at', 'DESC')->paginate($perPage);
 
@@ -68,7 +68,7 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
      * @param  integer $perPage
      * @return \Illuminate\Pagination\Paginator|\Tricks\Trick[]
      */
-    public function findAllFavorites(User $user, $perPage = 9)
+    public function findAllFavorites(User $user, $perPage = 15)
     {
         $tricks = $user->votes()->orderBy('created_at', 'DESC')->paginate($perPage);
 
@@ -103,7 +103,7 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
      * @param  integer $perPage
      * @return \Illuminate\Pagination\Paginator|\Tricks\Trick[]
      */
-    public function findAllPaginated($perPage = 9)
+    public function findAllPaginated($perPage = 15)
     {
         $tricks = $this->model->whereDraft(0)->orderBy('created_at', 'DESC')->paginate($perPage);
 
@@ -116,9 +116,9 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
      * @param  integer $per_page
      * @return \Illuminate\Pagination\Paginator|\Tricks\Trick[]
      */
-    public function findMostRecent($per_page = 9)
+    public function findMostRecent($perPage = 15)
     {
-        return $this->findAllPaginated($per_page);
+        return $this->findAllPaginated($perPage);
     }
 
     /**
@@ -127,7 +127,7 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
      * @param  integer $per_page
      * @return \Illuminate\Pagination\Paginator|\Tricks\Trick[]
      */
-    public function findMostCommented($perPage = 9)
+    public function findMostCommented($perPage = 15)
     {
         $tricks = $this->model->whereDraft(0)->orderBy('created_at', 'desc')->get();
 
@@ -151,11 +151,11 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
      * @param  integer  $per_page
      * @return \Illuminate\Pagination\Paginator|\Tricks\Trick[]
      */
-    public function findMostPopular($per_page = 9)
+    public function findMostPopular($perPage = 15)
     {
         return $this->model->whereDraft(0)
                     ->orderByRaw('(tricks.vote_cache * 5 + tricks.view_cache) DESC')
-                    ->paginate($per_page);
+                    ->paginate($perPage);
     }
 
     /**
@@ -185,7 +185,7 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
      * @param  integer $perPage
      * @return array
      */
-    public function findByCategory($slug, $perPage = 9)
+    public function findByCategory($slug, $perPage = 15)
     {
         $category = $this->category->whereSlug($slug)->first();
 
@@ -205,7 +205,7 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
      * @param  integer $perPage
      * @return \Illuminate\Pagination\Paginator|\Tricks\Trick[]
      */
-    public function searchByTermPaginated($term, $perPage = 12)
+    public function searchByTermPaginated($term, $perPage = 15)
     {
         $tricks =  $this->model
                         ->whereDraft(0)
@@ -329,7 +329,7 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
      * @param  integer $perPage
      * @return \Illuminate\Pagination\Paginator|\Tricks\Trick[]
      */
-    public function findByTag($slug, $perPage = 9)
+    public function findByTag($slug, $perPage = 15)
     {
         $tag = $this->tag->whereSlug($slug)->first();
 
