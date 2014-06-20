@@ -10,7 +10,7 @@ interface TrickRepositoryInterface
     /**
      * Find all the tricks for the given user paginated.
      *
-     * @param  \User $user
+     * @param  \Tricks\User $user
      * @param  integer $perPage
      * @return \Illuminate\Pagination\Paginator|\Tricks\Trick[]
      */
@@ -19,7 +19,7 @@ interface TrickRepositoryInterface
     /**
      * Find all tricks that are favorited by the given user paginated.
      *
-     * @param  \User $user
+     * @param  \Tricks\User $user
      * @param  integer $perPage
      * @return \Illuminate\Pagination\Paginator|\Tricks\Trick[]
      */
@@ -52,7 +52,7 @@ interface TrickRepositoryInterface
     /**
      * Find all tricks order by the creation date paginated.
      *
-     * @param  integer $per_page
+     * @param  integer $perPage
      * @return \Illuminate\Pagination\Paginator|\Tricks\Trick[]
      */
     public function findMostRecent($perPage = 15);
@@ -60,7 +60,7 @@ interface TrickRepositoryInterface
     /**
      * Find the tricks ordered by the number of comments paginated.
      *
-     * @param  integer $per_page
+     * @param  integer $perPage
      * @return \Illuminate\Pagination\Paginator|\Tricks\Trick[]
      */
     public function findMostCommented($perPage = 15);
@@ -68,7 +68,7 @@ interface TrickRepositoryInterface
     /**
      * Find the tricks ordered by popularity (most liked / viewed) paginated.
      *
-     * @param  integer $per_page
+     * @param  integer $perPage
      * @return \Illuminate\Pagination\Paginator|\Tricks\Trick[]
      */
     public function findMostPopular($perPage = 15);

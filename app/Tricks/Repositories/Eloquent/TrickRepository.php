@@ -113,7 +113,7 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
     /**
      * Find all tricks order by the creation date paginated.
      *
-     * @param  integer $per_page
+     * @param  integer $perPage
      * @return \Illuminate\Pagination\Paginator|\Tricks\Trick[]
      */
     public function findMostRecent($perPage = 15)
@@ -124,7 +124,7 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
     /**
      * Find the tricks ordered by the number of comments paginated.
      *
-     * @param  integer $per_page
+     * @param  integer $perPage
      * @return \Illuminate\Pagination\Paginator|\Tricks\Trick[]
      */
     public function findMostCommented($perPage = 15)
@@ -148,7 +148,7 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
     /**
      * Find the tricks ordered by popularity (most liked / viewed) paginated.
      *
-     * @param  integer  $per_page
+     * @param  integer  $perPage
      * @return \Illuminate\Pagination\Paginator|\Tricks\Trick[]
      */
     public function findMostPopular($perPage = 15)
@@ -181,9 +181,10 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
     /**
      * Find all tricks for the category that matches the given slug.
      *
-     * @param  string $slug
-     * @param  integer $perPage
+     * @param string $slug
+     * @param integer $perPage
      * @return array
+     * @throws \Tricks\Exceptions\CategoryNotFoundException
      */
     public function findByCategory($slug, $perPage = 15)
     {
@@ -325,9 +326,10 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
     /**
      * Find all tricks for the tag that matches the given slug.
      *
-     * @param  string $slug
-     * @param  integer $perPage
-     * @return \Illuminate\Pagination\Paginator|\Tricks\Trick[]
+     * @param string $slug
+     * @param integer $perPage
+     * @return array
+     * @throws \Tricks\Exceptions\TagNotFoundException
      */
     public function findByTag($slug, $perPage = 15)
     {
@@ -401,7 +403,8 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
     /**
      * Get the trick edit form service.
      *
-     * @return \Tricks\Services\Forms\TrickEditForm
+     * @param $id
+     * @return TrickEditForm
      */
     public function getEditForm($id)
     {
