@@ -8,7 +8,7 @@
 		<div class="trick-card-stats clearfix">
 			<div class="trick-card-timeago">{{ trans('tricks.submitted', array('timeago' => $trick->timeago, 'categories' => $trick->categories)) }}</div>
 			<div class="trick-card-stat-block"><span class="fa fa-eye"></span> {{$trick->view_cache}}</div>
-			<div class="trick-card-stat-block text-center"><span class="fa fa-comment"></span> <a href="{{ url('tricks/'.$trick->slug.'#disqus_thread') }}" data-disqus-identifier="{{$trick->id}}" style="color: #777;">0</a></div>
+			<div class="trick-card-stat-block text-center"><span class="fa fa-comment"></span> <a href="{{ route('tricks.show', [$trick->id, $trick->slug]) . '#disqus_thread' }}" data-disqus-identifier="{{$trick->id}}">0</a></div>
 			<div class="trick-card-stat-block text-right"><span class="fa fa-heart"></span> {{$trick->vote_cache}}</div>
 		</div>
 		<div class="trick-card-tags clearfix">
