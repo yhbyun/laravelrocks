@@ -72,14 +72,6 @@
 
             var disqus_shortname = '{{ Config::get("config.disqus_shortname") }}';
             (function(){var e=document.createElement("script");e.async=true;e.type="text/javascript";e.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("HEAD")[0]||document.getElementsByTagName("BODY")[0]).appendChild(e)})()
-
-            var _urq = _urq || [];
-            _urq.push(['initSite', 'd4225c99-647a-49eb-87cd-5459e84a3273']);
-            (function() {
-                var ur = document.createElement('script'); ur.type = 'text/javascript'; ur.async = true;
-                ur.src = ('https:' == document.location.protocol ? 'https://cdn.userreport.com/userreport.js' : 'http://cdn.userreport.com/userreport.js');
-                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ur, s);
-            })();
         </script>
     </body>
 </html>
