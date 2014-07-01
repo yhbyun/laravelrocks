@@ -5,7 +5,7 @@ Laravel Rocks는 Laravel 관련 팁을 모아 놓은 웹 사이트이다.
 ## Table of contents
 
  - [Requirements](#requirements)
- - [사용된 javascript library(#사용된-javascript-library)
+ - [사용된 javascript library](#사용된-javascript-library)
  - [Copyright and License](#copyright-and-license)
 
 ## Requirements
