@@ -5,7 +5,7 @@ return array(
     'tricks' => array(
         'priority' => '0.9',
         'freq'     => 'weekly',
-        'lastMod'  => 'created_at',
+        'lastMod'  => 'last_updated_at',
     ),
 
     'tags' => array(
