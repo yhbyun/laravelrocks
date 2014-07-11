@@ -12,6 +12,7 @@
         <meta property="og:image" content="http://laravelrocks.com/img/logo.png" />
         <meta property="og:site_name" content="laravelrocks.com" />
         <meta property="og:description" content="@yield('description')" />
+        <meta name="google-site-verification" content="VRynBWheyU2tXQPPggugiGRQgKXStG0Ed2xFOUr2Spc" />
         <meta name="description" content="@yield('description')">
         <meta name="author" content="{{ trans('layouts.meta_author') }}">
         <title>@yield('title')
