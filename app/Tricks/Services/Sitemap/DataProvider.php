@@ -97,7 +97,7 @@ class DataProvider
      */
     public function getTrickUrl($trick)
     {
-        return $this->url->route('tricks.show', $trick->slug);
+        return $this->url->route('tricks.show', [$trick->id, $trick->slug]);
     }
 
     /**
