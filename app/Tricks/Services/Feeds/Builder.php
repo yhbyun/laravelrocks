@@ -3,7 +3,7 @@
 namespace Tricks\Services\Feeds;
 
 use Illuminate\Http\Response;
-use Illuminate\View\Environment;
+use Illuminate\View\Factory;
 use Tricks\Repositories\TrickRepositoryInterface;
 
 class Builder
@@ -32,7 +32,7 @@ class Builder
     /**
      * View environment instance.
      *
-     * @var \Illuminate\View\Environment
+     * @var \Illuminate\View\Factory
      */
     protected $view;
 
@@ -48,13 +48,13 @@ class Builder
      *
      * @param  \Tricks\Repositories\TrickRepositoryInterface  $tricks
      * @param  \Illuminate\Http\Response                      $response
-     * @param  \Illuminate\View\Environment                   $view
+     * @param  \Illuminate\View\Factory                   $view
      * @return void
      */
     public function __construct(
         TrickRepositoryInterface $tricks,
         Response $response,
-        Environment $view
+        Factory $view
     ) {
         $this->tricks = $tricks;
         $this->response = $response;
