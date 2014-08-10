@@ -13,7 +13,7 @@
         <title>{{ $trick->title }}</title>
         <link href="{{ route('tricks.show', [$trick->id, $trick->slug]) }}" />
         <id>{{ $trick->tagUri }}</id>
-        <updated>{{ $trick->updated_at->toATOMString() }}</updated>
+        <updated>{{ $trick->last_updated_at->toATOMString() }}</updated>
         <content type="html">{{{ $trick->prettyDescription }}}</content>
     </entry>
 @endforeach
