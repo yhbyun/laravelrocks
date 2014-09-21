@@ -13,7 +13,7 @@ class HtmlMarkdownConvertor {
         $this->htmlParser->set_option('header_style', 'atx');
 
         $this->markdownParser = new MarkdownExtra;
-        $this->markdownParser->no_markup = true;
+        $this->markdownParser->no_markup = false;
     }
 
     public function convertHtmlToMarkdown($html) {
@@ -24,4 +24,4 @@ class HtmlMarkdownConvertor {
         return $this->markdownParser->transform($markdown);
     }
 
-} 
+}
