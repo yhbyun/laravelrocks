@@ -298,7 +298,8 @@ h2.title-between {
     padding-top:0;
 }
 
-.tag {
+.trick-card-tags {
+  .tag {
     float: left;
     display: block;
     border: #FB503B 1px solid;
@@ -308,15 +309,16 @@ h2.title-between {
     color: #FB503B;
     font-weight: bold;
     padding: 1px 5px;
-}
-
-.tag + .tag { margin-left: 5px; }
-
-.tag:hover {
-    text-decoration: none;
-    border-color: none;
-    color: white;
-    background-color: #FB503B;
+    &:hover {
+      text-decoration: none;
+      border-color: none;
+      color: white;
+      background-color: #FB503B;
+    }
+    & + .tag {
+      margin-left: 5px;
+    }
+  }
 }
 
 .trick-card-inner, .content-box {
