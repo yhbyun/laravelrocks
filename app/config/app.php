@@ -128,7 +128,6 @@ return array(
         'Roumen\Sitemap\SitemapServiceProvider',
         'Codesleeve\AssetPipeline\AssetPipelineServiceProvider',
         'Mews\Purifier\PurifierServiceProvider',
-        'Clockwork\Support\Laravel\ClockworkServiceProvider',
 
         'Tricks\Providers\RepositoryServiceProvider',
         'Tricks\Providers\SocialServiceProvider',
@@ -205,7 +204,6 @@ return array(
         'Validator'      => 'Illuminate\Support\Facades\Validator',
         'View'           => 'Illuminate\Support\Facades\View',
 
-        'Clockwork'      => 'Clockwork\Support\Laravel\Facade',
         'Purifier'       => 'Mews\Purifier\Facades\Purifier',
 
         'Github'         => 'Tricks\Facades\Github',
