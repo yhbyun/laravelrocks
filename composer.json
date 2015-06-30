@@ -14,7 +14,8 @@
         "michelf/php-markdown": "1.4.*@dev",
         "nickcernis/html-to-markdown": "dev-master",
         "misd/linkify": "1.1.*@dev",
-        "mews/purifier" : "dev-master"
+        "mews/purifier" : "dev-master",
+        "barryvdh/laravel-debugbar": "~1.8"
     },
     "require-dev" : {
         "mockery/mockery"         : "dev-master",

@@ -128,6 +128,7 @@ return array(
         'Roumen\Sitemap\SitemapServiceProvider',
         'Codesleeve\AssetPipeline\AssetPipelineServiceProvider',
         'Mews\Purifier\PurifierServiceProvider',
+        'Barryvdh\Debugbar\ServiceProvider',
 
         'Tricks\Providers\RepositoryServiceProvider',
         'Tricks\Providers\SocialServiceProvider',
@@ -213,6 +214,7 @@ return array(
         'ImageUpload'    => 'Tricks\Facades\ImageUpload',
         'Navigation'     => 'Tricks\Facades\Navigation',
         'Disqus'         => 'Tricks\Facades\Disqus',
+        'Debugbar'       => 'Barryvdh\Debugbar\Facade',
     ),
 
 );
