@@ -214,12 +214,10 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
                             $query->Where('title', 'LIKE', '%'.$term.'%')
                                   ->orWhere('description', 'LIKE', '%'.$term.'%')
                                   ->orWhereHas('tags', function ($query) use ($term) {
-                                      $query->where('title', 'LIKE', '%' . $term . '%')
-                                            ->orWhere('slug', 'LIKE', '%' . $term . '%');
+                                      $query->where('name', 'LIKE', '%' . $term . '%');
                                   })
                                   ->orWhereHas('categories', function ($query) use ($term) {
-                                      $query->where('name', 'LIKE', '%' . $term . '%')
-                                      ->orWhere('slug', 'LIKE', '%' . $term . '%');
+                                      $query->where('name', 'LIKE', '%' . $term . '%');
                                   });
                         })
                         ->orderBy('created_at', 'desc')
