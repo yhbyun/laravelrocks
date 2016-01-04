@@ -45,6 +45,10 @@ class TricksController extends BaseController
             return $this->redirectRoute('home');
         }
 
+        if ($trick->draft) {
+            return $this->redirectRoute('home');
+        }
+
         if ($trick->slug !== $slug) {
             return \Redirect::route('tricks.show', [$trick->id, $trick->slug], 301);
         }
