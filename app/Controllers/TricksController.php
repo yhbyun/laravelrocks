@@ -45,7 +45,7 @@ class TricksController extends BaseController
             return $this->redirectRoute('home');
         }
 
-        if ($trick->draft) {
+        if ($trick->draft && (!Auth::check() || Auth::user()->id !== $trick->user_id)) {
             return $this->redirectRoute('home');
         }
 
